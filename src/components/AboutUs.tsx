@@ -1,0 +1,76 @@
+import React from "react";
+
+const AboutUs = () => {
+  return (
+    <div>
+      <section className="container flex flex-col w-4/5 space-y-12 mx-auto sm:space-x-4 md:space-y-0 md:space-x-8 sm:flex-col mt-8 md:flex-row">
+        {/* Left item  */}
+        <div className="space-y-12 w-full bg-primary hover:bg-[#e0c212]  rounded-lg text-white hover:text-primary p-8 sm:w-full md:w-1/2">
+          <h1 className="text-2xl font-medium   text-center md:text-4xl md:text-left">
+            Our dream is to empower individuals to achieve their financial goals
+            with confidence.
+          </h1>
+          <p className="text-center sm:text-left">
+            FirstRobo is your trusted partner in personalized investment
+            recommendations and portfolio management services. We are committed
+            to revolutionizing the way individuals approach investing, making it
+            more accessible, personalized, and efficient through the power of
+            technology.
+          </p>
+          <p className="text-center sm:text-left">
+            We are committed to transparency, integrity, and excellence in
+            everything we do. We prioritize the interests of our clients above
+            all else and adhere to the highest standards of ethical conduct and
+            regulatory compliance. Our team of experienced financial experts,
+            data scientists, and technology professionals work tirelessly to
+            ensure that our robo-advisor system remains at the forefront of
+            innovation and delivers unparalleled value to our customers.
+          </p>
+        </div>
+
+        {/* right side */}
+        <div className="space-y-12 w-full text-primary sm:w-full md:w-1/2">
+          {/* up part */}
+          <div className="bg-primary hover:bg-[#e0c212] text-white hover:text-primary space-y-12 p-4 rounded-lg sm:w-full md:w-full">
+            <h1 className="text-2xl font-medium text-center md:text-4xl md:text-left">
+              Our Mission
+            </h1>
+            <p className="text-center md:text-left">
+              To remain true to our name by providing the best financial
+              services possible.
+            </p>
+          </div>
+
+          {/* middle part */}
+          <div className="  space-y-12 bg-primary hover:bg-[#e0c212]  text-white hover:text-primary p-4 rounded-lg sm:w-full md:w-full">
+            <h1 className="text-2xl font-medium text-center md:text-4xl md:text-left">
+              Our Vision
+            </h1>
+            <p className="text-center md:text-left">
+              To be Africa’s Bank of first choice.
+            </p>
+          </div>
+
+          {/* down part */}
+          <div className=" bg-primary hover:bg-[#e0c212] text-white hover:text-primary space-y-12 p-4 rounded-lg sm:w-full md:w-full">
+            <h1 className="text-2xl font-medium text-center md:text-4xl md:text-left">
+              Our Approach
+            </h1>
+            <p className=" text-center md:text-left">
+              At the heart of our approach lies cutting-edge artificial
+              intelligence and machine learning algorithms. These advanced
+              technologies enable us to analyze vast amounts of data, including
+              customers' risk tolerance, investment goals, financial
+              preferences, market trends, and economic indicators. By leveraging
+              these insights, we can generate customized investment portfolios
+              that are precisely calibrated to optimize returns while minimizing
+              risk for each individual client.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default AboutUs;
