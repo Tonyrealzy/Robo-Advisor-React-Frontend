@@ -6,12 +6,12 @@ import FooterIcon4 from "../../assets/icons/FooterIcon4";
 import FooterIcon5 from "../../assets/icons/FooterIcon5";
 import FooterIcon6 from "../../assets/icons/FooterIcon6";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <div className=" bg-gray-600 shadow-md box-border w-full text-left font-bold text-lg px-8 py-14">
       <div className="justify-left w-full mb-10 text-center inline-block align-top md:w-1/3">
         <h3 className="text-xl text-white mb-0">
-          Personalized Investing Made Easy with FirstRobo
+          Personalized Investing Made Easy with RoboAdvisor
         </h3>
       </div>
 

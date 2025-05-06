@@ -1,6 +1,6 @@
 import React from "react";
 
-const AboutUs = () => {
+const AboutUs: React.FC = () => {
   return (
     <div>
       <section className="container flex flex-col w-4/5 space-y-12 mx-auto sm:space-x-4 md:space-y-0 md:space-x-8 sm:flex-col mt-8 md:flex-row">
@@ -11,7 +11,7 @@ const AboutUs = () => {
             with confidence.
           </h1>
           <p className="text-center sm:text-left">
-            FirstRobo is your trusted partner in personalized investment
+            RoboAdvisor is your trusted partner in personalized investment
             recommendations and portfolio management services. We are committed
             to revolutionizing the way individuals approach investing, making it
             more accessible, personalized, and efficient through the power of

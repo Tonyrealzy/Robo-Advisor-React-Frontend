@@ -1,6 +1,6 @@
 import React from "react";
 
-const Agreement = () => {
+const Agreement: React.FC = () => {
   return (
     <div>
       <section id="title">

@@ -1,6 +1,6 @@
 import React from "react";
 
-const DashboardNav = () => {
+const DashboardNav: React.FC = () => {
   return (
     <div>
       <div className="sidenav sticky bg-primary z-20 top-0 w-16 h-screen shadow-blue-500 transition-all duration-100 ease-in-out">

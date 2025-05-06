@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cards = () => {
+const Cards: React.FC = () => {
   return (
     <div>
       <div className="card p-4 pb-1 my-2 flex-1 h-full slide-in-stop">

@@ -1,6 +1,6 @@
 import React from "react";
 
-const DashboardMain = () => {
+const DashboardMain: React.FC = () => {
   return (
     <div>
       <section className="flex-1 relative">

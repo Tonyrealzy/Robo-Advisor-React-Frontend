@@ -1,6 +1,6 @@
 import React from "react";
 
-const DashboardTable = () => {
+const DashboardTable: React.FC = () => {
   return (
     <div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-8 bg-slate-50 p-2">
