@@ -5,13 +5,13 @@ import Navbar from "./Navbar";
 
 const AuthOutlet: React.FC = () => {
   return (
-    <div className="flex flex-col h-screen w-screen justify-center overflow-y-auto">
+    <div className="flex flex-col h-screen justify-center overflow-y-auto">
       <Navbar />
       <section className="flex flex-col md:flex-row">
         <section className="hidden md:flex md:flex-1">
           <img
             src={RobotImage}
-            className="h-screen object-cover"
+            className="h-screen w-full object-cover"
             loading="lazy"
           />
         </section>
