@@ -12,12 +12,12 @@ const Landing: React.FC = () => {
   return (
     <div className="container min-h-screen flex flex-col space-y-2">
       <section
-        className="h-full container flex flex-col-reverse gap-2 md:gap-0 items-center md:flex-row"
+        className="container flex flex-col-reverse gap-2 md:gap-0 items-center md:flex-row"
         style={{ marginTop: "18px" }}
       >
         {/* Left item */}
         <div
-          className="flex justify-center items-center md:flex-1"
+          className="flex justify-center items-center flex-1"
           style={{ padding: "4px" }}
         >
           <aside className="flex flex-col gap-4 justify-center items-center text-center md:text-start">
@@ -40,19 +40,18 @@ const Landing: React.FC = () => {
         </div>
 
         {/* Right Item - Image */}
-        <div className="md:flex-1">
+        <div className="flex-1">
           <img
             className="w-full h-auto"
             src={RobotOneImage}
-            loading="lazy"
             alt="Robot Image"
           />
         </div>
       </section>
 
-      <section className="w-full flex flex-col gap-2 md:gap-6">
+      <section className="flex flex-col gap-2 md:gap-6">
         {/* Features Section */}
-        <div className="container bg-primary w-full flex flex-col-reverse items-center justify-center h-2/5 px-6 md:mx-auto mt-10 space-y-0 md:space-y-12 md:space-x-8 md:flex-row md:gap-4">
+        <div className="container bg-primary flex flex-col-reverse items-center justify-center h-2/5 px-6 md:mx-auto mt-10 space-y-0 md:space-y-12 md:space-x-8 md:flex-row md:gap-4">
           {/* Left item */}
           <div
             className="flex flex-col justify-center items-center gap-4 mx-auto text-white md:flex-1 mb-40 space-y-12"
@@ -243,7 +242,7 @@ const Landing: React.FC = () => {
 
         {/* CTA Section */}
         <div
-          className="container bg-teal flex flex-col items-center justify-between mx-auto space-y-12 md:flex-row"
+          className="container bg-teal flex flex-col items-center justify-between space-y-12 md:flex-row"
           style={{ padding: "8px" }}
         >
           <h2 className="text-3xl font-bold text-center text-primary md:text-4xl md:max-w-xl md:text-left">

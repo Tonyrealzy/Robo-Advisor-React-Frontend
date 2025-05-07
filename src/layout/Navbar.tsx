@@ -28,9 +28,9 @@ const Navbar: React.FC = () => {
   return (
     <div>
       {/* Navbar */}
-      <section className="fixed top-0 container mx-auto z-10 border-b-2 border-b-firstgold">
+      <section className="fixed w-full top-0 z-10 border-b-2 border-b-firstgold">
         <div
-          className="flex items-center bg-primary justify-between h-16 md:h-12 w-full"
+          className="flex items-center bg-primary justify-between h-14 md:h-12"
           style={{ padding: "8px" }}
         >
           <div style={{ padding: "8px" }}>

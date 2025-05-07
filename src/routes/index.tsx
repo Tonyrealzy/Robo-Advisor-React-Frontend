@@ -2,17 +2,19 @@ import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
 import Error404 from "../pages/Error404";
 import SuspenseWrapper from "./SuspenseWrapper";
-// import LoginPage from "../pages/LoginPage";
+const HomeOutlet = lazy(() => import("../layout/HomeOutlet"));
+const AuthOutlet = lazy(() => import("../layout/AuthOutlet"));
 const LandingPage = lazy(() => import("../pages/LandingPage"));
-const NotLoggedInOutlet = lazy(() => import("../layout/NotLoggedInOutlet"));
 const AboutUsPage = lazy(() => import("../pages/AboutUsPage"));
 const FaqPage = lazy(() => import("../pages/FaqPage"));
+const Signup = lazy(() => import("../components/Signup"));
+const Login = lazy(() => import("../components/Login"));
 const ContactUsPage = lazy(() => import("../pages/ContactUsPage"));
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <NotLoggedInOutlet />,
+    element: <HomeOutlet />,
     children: [
       {
         index: true,
@@ -23,7 +25,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/about",
+        path: "about",
         element: (
           <SuspenseWrapper>
             <AboutUsPage />
@@ -31,7 +33,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/faq",
+        path: "faq",
         element: (
           <SuspenseWrapper>
             <FaqPage />
@@ -39,21 +41,31 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/contact",
+        path: "contact",
         element: (
           <SuspenseWrapper>
             <ContactUsPage />
           </SuspenseWrapper>
         ),
       },
-      // {
-      //   path: "/login",
-      //   element: (
-      //     <SuspenseWrapper>
-      //       <LoginPage />
-      //     </SuspenseWrapper>
-      //   ),
-      // },
+      {
+        path: "",
+        element: (
+          <SuspenseWrapper>
+            <AuthOutlet />
+          </SuspenseWrapper>
+        ),
+        children: [
+          {
+            path: "login",
+            element: <Login />,
+          },
+          {
+            path: "signup",
+            element: <Signup />,
+          },
+        ],
+      },
     ],
   },
   {
