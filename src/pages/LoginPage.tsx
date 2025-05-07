@@ -1,14 +1,14 @@
 import React from "react";
-import AboutUs from "../components/AboutUs";
 import Navbar from "../layout/Navbar";
+import Login from "../components/Login";
 
-const AboutUsPage: React.FC = () => {
+const LoginPage: React.FC = () => {
   return (
     <div className="flex flex-col">
       <Navbar />
-      <AboutUs />
+      <Login />
     </div>
   );
 };
 
-export default AboutUsPage;
+export default LoginPage;

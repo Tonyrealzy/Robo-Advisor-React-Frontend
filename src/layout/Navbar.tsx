@@ -1,65 +1,112 @@
-import React from "react";
+import React, { useState } from "react";
+import { LogoImage } from "../assets/images";
+import HamburgerIcon from "../assets/icons/HamburgerIcon";
+import HamburgerCloseIcon from "../assets/icons/HamburgerCloseIcon";
+import { useNavigate } from "react-router-dom";
 
 const Navbar: React.FC = () => {
+  const [clicked, setClicked] = useState(false);
+  const navigate = useNavigate();
+
+  const navigateToHome = () => {
+    navigate("/");
+    setClicked(false);
+  };
+  const navigateToAboutUs = () => {
+    navigate("/about");
+    setClicked(false);
+  };
+  const navigateToContactUs = () => {
+    navigate("/contact");
+    setClicked(false);
+  };
+  const navigateToFAQ = () => {
+    navigate("/faq");
+    setClicked(false);
+  };
+
   return (
     <div>
       {/* Navbar */}
-      <nav className="fixed top-0 container mx-auto z-10">
-        {/* Flex container */}
-        <div className="flex items-center bg-primary justify-between md:h-12 w-screen">
-          {/* Logo */}
-          <div className="p-2">
-            <img
-              src="../../../assets/images/logo.png"
-              alt="logo"
-              className="max-w-32"
-            />
+      <section className="fixed top-0 container mx-auto z-10 border-b-2 border-b-firstgold">
+        <div
+          className="flex items-center bg-primary justify-between h-16 md:h-12 w-full"
+          style={{ padding: "8px" }}
+        >
+          <div style={{ padding: "8px" }}>
+            <img src={LogoImage} alt="Logo Image" className="max-w-32" />
           </div>
+
           {/* Menu Items     */}
-          <div className="hidden space-x-8 pr-16 md:flex">
-            <a className="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base">
+          <div
+            className="hidden md:flex md:justify-center md:items-end gap-6"
+            style={{ padding: "8px" }}
+          >
+            <a
+              className="font-semibold cursor-pointer hover:text-firstgold text-white align-top hover:border-b-primary text-base"
+              onClick={() => navigate("/")}
+            >
               Home
             </a>
-            <a className="font-semibold hover:text-firstgold text-white align-top hover:border-b-2 hover:border-b-primary text-base">
+            <a
+              className="font-semibold cursor-pointer hover:text-firstgold text-white align-top  hover:border-b-primary text-base"
+              onClick={() => navigate("/faq")}
+            >
               FAQ's
             </a>
-
-            <a className="font-semibold hover:text-firstgold text-white hover:border-b-2 hover:border-b-primary text-base">
+            <a
+              className="font-semibold cursor-pointer hover:text-firstgold text-white  hover:border-b-primary text-base"
+              onClick={() => navigate("/about")}
+            >
               About Us
             </a>
-
-            <a className="font-semibold hover:text-firstgold text-white hover:border-b-2 hover:border-b-primary text-base">
+            <a
+              className="font-semibold cursor-pointer hover:text-firstgold text-white  hover:border-b-primary text-base"
+              onClick={() => navigate("/contact")}
+            >
               Contact Us
             </a>
           </div>
 
           {/* Hamburger Icon     */}
-          <button className="block hamburger pr-16 mr-8 md:pr-0 md:hidden focus:outline-none">
-            <span className="hamburger-top"></span>
-            <span className="hamburger-middle"></span>
-            <span className="hamburger-bottom"></span>
-          </button>
+          <span
+            className="block md:hidden focus:outline-none"
+            onClick={() => setClicked(true)}
+          >
+            <HamburgerIcon />
+          </span>
         </div>
 
         {/* Mobile Menu */}
-        <div className="desktop_menu md:mt-24 md:hidden fixed top-20 right-0 z-50 transition ease-in-out bg-[#d9e9fa] h-screen">
-          <ul className="list-none text-white">
-            <li className="block text-left py-4 pl-6 border-b border-t bg-primary border-gray-300">
-              <a>Home</a>
-            </li>
-            <li className="block text-left py-4 pl-6 border-b bg-primary border-gray-300">
-              <a>FAQ's</a>
-            </li>
+        {clicked && (
+          <div
+            className="flex flex-col md:hidden fixed top-0 right-0 z-50 transition ease-in-out bg-primary h-full w-full"
+            style={{ padding: "12px 8px" }}
+          >
+            <span
+              className="flex flex-col justify-end items-end "
+              onClick={() => setClicked(false)}
+            >
+              <HamburgerCloseIcon />
+            </span>
+            <ul className="list-none text-white h-full flex flex-col items-center justify-center gap-2">
+              <li className="block text-left py-4  border-gray-300">
+                <a onClick={navigateToHome}>Home</a>
+              </li>
+              <li className="block text-left py-4 border-gray-300">
+                <a onClick={navigateToFAQ}>FAQ's</a>
+              </li>
 
-            <li className="block text-left py-4 pl-6 border-b bg-primary border-gray-300">
-              <a>About Us</a>
-            </li>
-            <li className="block text-left py-4 pl-6 border-b bg-primary border-gray-300">
-              <a>Contact Us</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+              <li className="block text-left py-4 border-gray-300">
+                <a onClick={navigateToAboutUs}>About Us</a>
+              </li>
+              <li className="block text-left py-4 border-gray-300">
+                <a onClick={navigateToContactUs}>Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        )}
+      </section>
     </div>
   );
 };
