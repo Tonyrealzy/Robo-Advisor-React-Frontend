@@ -46,14 +46,14 @@ export const router = createBrowserRouter([
           </SuspenseWrapper>
         ),
       },
-      {
-        path: "/login",
-        element: (
-          <SuspenseWrapper>
-            <LoginPage />
-          </SuspenseWrapper>
-        ),
-      },
+      // {
+      //   path: "/login",
+      //   element: (
+      //     <SuspenseWrapper>
+      //       <LoginPage />
+      //     </SuspenseWrapper>
+      //   ),
+      // },
     ],
   },
   {
