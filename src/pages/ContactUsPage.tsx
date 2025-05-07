@@ -1,9 +1,11 @@
 import React from "react";
 import ContactUs from "../components/ContactUs";
+import Navbar from "../layout/Navbar";
 
 const ContactUsPage: React.FC = () => {
   return (
-    <div>
+    <div className="flex flex-col">
+      <Navbar />
       <ContactUs />
     </div>
   );

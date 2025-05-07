@@ -1,7 +1,7 @@
 const FooterIcon4 = () => {
   return (
     <svg
-      className="inline-block w-9 h-9 cursor-pointer p-2.5 bg-gray-50 rounded-md  text-lg leading-9 text-center"
+      className="inline-block w-6 h-6 cursor-pointer p-2.5 bg-gray-50 rounded-md  text-lg leading-9 text-center"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"
     >
