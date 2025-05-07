@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-const NotLoggedInOutlet: React.FC = () => {
+const HomeOutlet: React.FC = () => {
   return (
     <div>
       <Outlet />
@@ -9,4 +9,4 @@ const NotLoggedInOutlet: React.FC = () => {
   );
 };
 
-export default NotLoggedInOutlet;
+export default HomeOutlet;

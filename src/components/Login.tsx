@@ -1,73 +1,63 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
-    <div>
-      <div>
-        <section>
-          <div>
-            <h1>
-              Achieve financial goals
-              <br />
-              with confidence!
-            </h1>
-            <button></button>
-            <h1>
-              Your trusted partner in personalized
-              <br />
-              investment recommendations and <br />
-              portfolio management services.
-              <br />
-            </h1>
-            <button>RETURN</button>
-          </div>
-        </section>
-
-        <section>
-          <div>
-            <form>
-              <section>
-                {/* <small className="text-red-600 text-center block text-[0.8rem]">{{errorMessage}}</small> */}
-
-                <p id="sign">Sign in with your details</p>
-                <input
-                  type="text"
-                  id="email"
-                  name="email"
-                  required
-                  placeholder="Email"
-                />
-
-                <div className="password-container">
-                  <input required />
-                  <span className="eyeicon">
-                    {/* <i
-                  [ngclassName]="
-                    switchIcon ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye'
-                  "
-                ></i> */}
-                  </span>
-                </div>
-
-                <button type="submit" className="text-white font-bold">
-                  LOG IN
-                </button>
-              </section>
-
-              <section>
-                <p id="par">
-                  Is this your first time here? For full access, you need to
-                  sign-up.
-                </p>
-                <a>CREATE NEW ACCOUNT</a>
-              </section>
-            </form>
-            <br />
-            <br />
-          </div>
-        </section>
+    <form className="flex flex-col gap-2">
+      <input
+        type="text"
+        name="email"
+        required
+        placeholder="Email"
+        className="border border-primary outline-none h-10 w-full rounded-md text-xs"
+        style={{ padding: "12px" }}
+      />
+      <div className="password-container">
+        <input
+          type="password"
+          name="password"
+          required
+          placeholder="Password"
+          className="border border-primary outline-none h-10 w-full rounded-md text-xs"
+          style={{ padding: "12px" }}
+        />
+        <span className="eyeicon">
+          {/* <i
+            [ngclassName]="
+              switchIcon ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye'
+            "
+          ></i> */}
+        </span>
       </div>
-    </div>
+      <button
+        type="submit"
+        className="bg-primary text-firstgold font-bold h-10 w-full rounded-md text-[10px] cursor-pointer"
+      >
+        LOGIN
+      </button>
+
+      <section className="flex flex-row w-full justify-between text-[10px]">
+        <p className="flex-1">
+          Is this your first time here?
+          <br></br> Click{" "}
+          <a
+            className="cursor-pointer text-firstgold"
+            onClick={() => navigate("/signup")}
+          >
+            here
+          </a>{" "}
+          to sign-up.
+        </p>
+        <p
+          className="flex-1 flex justify-end underline cursor-pointer"
+          onClick={() => navigate("/signup")}
+        >
+          Forgot password?
+        </p>
+      </section>
+    </form>
   );
 };
 

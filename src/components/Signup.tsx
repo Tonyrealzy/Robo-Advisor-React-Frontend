@@ -1,65 +1,88 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
-    <div>
-      <main>
-        <div>
-          <section>
-            <form className="col-6">
-              <h1>Create a new account</h1>
+    <form className="flex flex-col gap-2">
+      <input
+        type="text"
+        name="email"
+        placeholder="Enter Email"
+        className="border border-primary outline-none h-10 w-full rounded-md text-xs"
+        style={{ padding: "12px" }}
+        required
+      />
+      <input
+        type="text"
+        id="firstname"
+        name="firstName"
+        placeholder="Enter First Name"
+        className="border border-primary outline-none h-10 w-full rounded-md text-xs"
+        style={{ padding: "12px" }}
+        required
+      />
 
-              <label>First name:</label>
-              <br />
-              <input type="text" id="firstname" name="firstName" required />
+      <input
+        type="text"
+        id="lastname"
+        name="lastName"
+        placeholder="Enter Last Name"
+        className="border border-primary outline-none h-10 w-full rounded-md text-xs"
+        style={{ padding: "12px" }}
+        required
+      />
 
-              <label>Last name:</label>
-              <br />
-              <input type="text" id="lastname" name="lastName" required />
+      <input
+        type="text"
+        placeholder="Enter Username"
+        name="userName"
+        className="border border-primary outline-none h-10 w-full rounded-md text-xs"
+        style={{ padding: "12px" }}
+        required
+      />
 
-              <label>Username:</label>
-              <br />
-              <input type="text" id="username" name="userName" required />
+      <div className="">
+        <input
+          type="password"
+          placeholder="Enter Password"
+          className="border border-primary outline-none h-10 w-full rounded-md text-xs"
+          style={{ padding: "12px" }}
+          required
+        />
+      </div>
 
-              <label>Password:</label>
-              <br />
-              <div className="password-container">
-                <input type="password" required />
-                {/* <span className="eyeicon">
-              <i [ngclassName]="switchIcon1 ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
-          </span> */}
-              </div>
+      <div className="">
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          className="border border-primary outline-none h-10 w-full rounded-md text-xs"
+          style={{ padding: "12px" }}
+          required
+        />
+      </div>
 
-              <label>Confirm password:</label>
-              <br />
-              <div className="password-container">
-                <input type="password" id="confirmPwd" required />
-                {/* <span className="eyeicon" (click)="toggleConfirmPasswordVisibility('confirmPassword')">
-          <i [ngclassName]="switchIcon2 ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
-        </span> */}
-              </div>
+      <button
+        type="submit"
+        className="bg-primary text-firstgold font-bold h-10 w-full rounded-md text-[10px] cursor-pointer"
+      >
+        CREATE ACCOUNT
+      </button>
 
-              <label>Email:</label>
-              <input type="text" id="email" name="email" required />
-
-              <button id="create">CREATE</button>
-              <button id="cancel">CANCEL</button>
-              {/* <div >
-          {{errorMessage}}
-        </div> */}
-              <p id="write">
-                Got an Account?
-                <a id="login">Login</a>
-              </p>
-            </form>
-          </section>
-
-          <section id="two">
-            <img id="image" src="assets/images/robot1.png" alt="" />
-          </section>
-        </div>
-      </main>
-    </div>
+      <section className="flex text-[11px]">
+        <p>
+          Got an Account? Click{" "}
+          <a
+            className="cursor-pointer text-firstgold"
+            onClick={() => navigate("/login")}
+          >
+            here
+          </a>{" "}
+          to login.
+        </p>
+      </section>
+    </form>
   );
 };
 
