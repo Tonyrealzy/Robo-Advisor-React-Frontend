@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
 import Error404 from "../pages/Error404";
 import SuspenseWrapper from "./SuspenseWrapper";
-import LoginPage from "../pages/LoginPage";
+// import LoginPage from "../pages/LoginPage";
 const LandingPage = lazy(() => import("../pages/LandingPage"));
 const NotLoggedInOutlet = lazy(() => import("../layout/NotLoggedInOutlet"));
 const AboutUsPage = lazy(() => import("../pages/AboutUsPage"));
