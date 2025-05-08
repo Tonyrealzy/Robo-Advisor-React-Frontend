@@ -43,7 +43,7 @@ const Login: React.FC = () => {
           Is this your first time here?
           <br></br> Click{" "}
           <a
-            className="cursor-pointer text-firstgold"
+            className="cursor-pointer text-firstgold underline"
             onClick={() => navigate("/signup")}
           >
             here
@@ -52,7 +52,7 @@ const Login: React.FC = () => {
         </p>
         <p
           className="flex-1 flex justify-end underline cursor-pointer"
-          onClick={() => navigate("/signup")}
+          onClick={() => navigate("/reset")}
         >
           Forgot password?
         </p>

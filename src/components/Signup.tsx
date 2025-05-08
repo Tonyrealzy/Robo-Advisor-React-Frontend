@@ -74,7 +74,7 @@ const Signup: React.FC = () => {
         <p>
           Got an Account? Click{" "}
           <a
-            className="cursor-pointer text-firstgold"
+            className="cursor-pointer text-firstgold underline"
             onClick={() => navigate("/login")}
           >
             here

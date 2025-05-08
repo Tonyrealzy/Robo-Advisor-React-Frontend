@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
 import Error404 from "../pages/Error404";
 import SuspenseWrapper from "./SuspenseWrapper";
+import ResetPassword from "../components/ResetPassword";
+import ChangePassword from "../components/ChangePassword";
 const HomeOutlet = lazy(() => import("../layout/HomeOutlet"));
 const AuthOutlet = lazy(() => import("../layout/AuthOutlet"));
 const LandingPage = lazy(() => import("../pages/LandingPage"));
@@ -63,6 +65,14 @@ export const router = createBrowserRouter([
           {
             path: "signup",
             element: <Signup />,
+          },
+          {
+            path: "reset",
+            element: <ResetPassword />,
+          },
+          {
+            path: "password",
+            element: <ChangePassword />,
           },
         ],
       },
