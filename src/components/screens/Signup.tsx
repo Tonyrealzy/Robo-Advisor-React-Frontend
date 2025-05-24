@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PasswordInput from "../inputs/PasswordInput";
 
 const Signup: React.FC = () => {
   const navigate = useNavigate();
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
   return (
     <form className="flex flex-col gap-2">
@@ -43,25 +46,17 @@ const Signup: React.FC = () => {
         required
       />
 
-      <div className="">
-        <input
-          type="password"
-          placeholder="Enter Password"
-          className="border border-primary outline-none h-10 w-full rounded-md text-xs"
-          style={{ padding: "12px" }}
-          required
-        />
-      </div>
+      <PasswordInput
+        visible={passwordVisible}
+        setVisible={setPasswordVisible}
+        placeholder="Password"
+      />
 
-      <div className="">
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          className="border border-primary outline-none h-10 w-full rounded-md text-xs"
-          style={{ padding: "12px" }}
-          required
-        />
-      </div>
+      <PasswordInput
+        visible={confirmPasswordVisible}
+        setVisible={setConfirmPasswordVisible}
+        placeholder="Confirm Password"
+      />
 
       <button
         type="submit"

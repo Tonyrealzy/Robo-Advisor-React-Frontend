@@ -1,5 +1,5 @@
 import React from "react";
-import ContactUs from "../components/ContactUs";
+import ContactUs from "../components/screens/ContactUs";
 import Navbar from "../layout/Navbar";
 
 const ContactUsPage: React.FC = () => {

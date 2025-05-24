@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const ResetPassword: React.FC = () => {
   const navigate = useNavigate();
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  const handleResetLink = () => {
+    toast.success("Good");
+    setIsDisabled(true);
+    setTimeout(() => setIsDisabled(false), 30000);
+  };
 
   return (
     <form className="flex flex-col gap-2">
@@ -22,13 +30,20 @@ const ResetPassword: React.FC = () => {
         RESET PASSWORD
       </button>
 
-      <section className="flex justify-between cursor-pointer underline text-[11px]">
+      <section className="flex justify-between cursor-pointer text-[11px]">
         <p
-        // onClick={() => navigate("/login")}
+          onClick={isDisabled ? undefined : handleResetLink}
+          className={`${
+            isDisabled
+              ? "text-gray-400 cursor-not-allowed no-underline decoration-0"
+              : "underline"
+          }`}
         >
           Resend reset link?
         </p>
-        <p onClick={() => navigate("/login")}>Back to login.</p>
+        <p onClick={() => navigate("/login")} className="underline">
+          Back to login.
+        </p>
       </section>
     </form>
   );

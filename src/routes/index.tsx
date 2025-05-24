@@ -2,15 +2,15 @@ import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
 import Error404 from "../pages/Error404";
 import SuspenseWrapper from "./SuspenseWrapper";
-import ResetPassword from "../components/ResetPassword";
-import ChangePassword from "../components/ChangePassword";
+import ResetPassword from "../components/screens/ResetPassword";
+import ChangePassword from "../components/screens/ChangePassword";
 const HomeOutlet = lazy(() => import("../layout/HomeOutlet"));
 const AuthOutlet = lazy(() => import("../layout/AuthOutlet"));
 const LandingPage = lazy(() => import("../pages/LandingPage"));
 const AboutUsPage = lazy(() => import("../pages/AboutUsPage"));
 const FaqPage = lazy(() => import("../pages/FaqPage"));
-const Signup = lazy(() => import("../components/Signup"));
-const Login = lazy(() => import("../components/Login"));
+const Signup = lazy(() => import("../components/screens/Signup"));
+const Login = lazy(() => import("../components/screens/Login"));
 const ContactUsPage = lazy(() => import("../pages/ContactUsPage"));
 
 export const router = createBrowserRouter([

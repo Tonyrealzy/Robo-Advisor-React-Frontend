@@ -1,5 +1,5 @@
 import React from "react";
-import { CustomerCareImage } from "../assets/images";
+import { CustomerCareImage } from "../../assets/images";
 
 const ContactUs: React.FC = () => {
   return (

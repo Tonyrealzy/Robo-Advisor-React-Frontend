@@ -1,12 +1,12 @@
-import React from 'react'
-import Dashboard from '../components/Dashboard'
+import React from "react";
+import Dashboard from "../components/screens/Dashboard";
 
 const DashboardPage: React.FC = () => {
   return (
     <div>
-        <Dashboard/>
+      <Dashboard />
     </div>
-  )
-}
+  );
+};
 
-export default DashboardPage
+export default DashboardPage;

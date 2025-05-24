@@ -1,5 +1,5 @@
 import React from "react";
-import Agreement from "../components/Agreement";
+import Agreement from "../components/screens/Agreement";
 
 const AgreementPage: React.FC = () => {
   return (
