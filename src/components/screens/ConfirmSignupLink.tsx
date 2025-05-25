@@ -4,10 +4,11 @@ import { useConfirmSignup } from "../../hooks/useConfirmSignup";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const ConfirmSignup: React.FC = () => {
+const ConfirmSignupLink: React.FC = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const token = searchParams.get("token");
+  const email = sessionStorage.getItem("email") || "";
 
   const { loading, handleSubmit } = useConfirmSignup();
 
@@ -18,10 +19,10 @@ const ConfirmSignup: React.FC = () => {
       return;
     }
 
-    handleSubmit({ email: "umehobiarinze2@gmail.com", token });
+    handleSubmit({ email, token });
   }, [token, navigate]);
 
   return <div>{loading && <LoadingPage />}</div>;
 };
 
-export default ConfirmSignup;
+export default ConfirmSignupLink;

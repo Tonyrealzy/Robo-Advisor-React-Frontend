@@ -65,6 +65,12 @@ export interface ChangePasswordRequest {
   token: string;
 }
 
+export interface ChangePasswordFormFields {
+  token: string;
+  new_password: string;
+  confirmPassword?: string;
+}
+
 export interface SignUpRequest {
   email: string;
   first_name: string;

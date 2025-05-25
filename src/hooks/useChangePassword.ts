@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
+import { ChangePasswordService } from "../services/AuthService";
+import { ChangePasswordFormFields } from "../models/interface";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { SignupService } from "../services/AuthService";
-import { SignupFormFields } from "../models/interface";
 import { logger } from "../components/logger";
 
-export const useSignup = () => {
+export const useChangePassword = (token: string) => {
   const navigate = useNavigate();
 
   const {
@@ -13,18 +13,15 @@ export const useSignup = () => {
     handleSubmit,
     watch,
     formState: { errors, isSubmitting },
-  } = useForm<SignupFormFields>();
+  } = useForm<ChangePasswordFormFields>();
 
-  const onSubmit = async (form: SignupFormFields) => {
+  const onSubmit = async (form: ChangePasswordFormFields) => {
     const { confirmPassword, ...payload } = form;
-    await SignupService(payload)
+    const requestBody = { ...payload, token };
+    await ChangePasswordService(requestBody)
       .then((data: any) => {
         if (data?.status === "success") {
-          sessionStorage.setItem("username", form.username);
-          sessionStorage.setItem("email", form.email);
-          toast.success(
-            `Account created! A confirmation link was sent to ${form.email}. Please verify to complete signup.`
-          );
+          toast.success(data?.message);
           navigate("/", { replace: true });
         } else {
           toast.error(data?.error);
