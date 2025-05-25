@@ -75,11 +75,15 @@ export const router = createBrowserRouter([
             path: "password",
             element: <ChangePassword />,
           },
-          {
-            path: "confirm-signup",
-            element: <ConfirmSignup />,
-          },
         ],
+      },
+      {
+        path: "confirm-signup",
+        element: (
+          <SuspenseWrapper>
+            <ConfirmSignup />
+          </SuspenseWrapper>
+        ),
       },
     ],
   },
