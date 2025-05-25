@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PasswordInput from "../inputs/PasswordInput";
 import { useLogin } from "../../hooks/useLogin";
 import { useNavigate } from "react-router-dom";
-import LoadingPage from "../../pages/LoadingPage";
 import MiniLoader from "../loader/MiniLoader";
 
 const Login: React.FC = () => {
@@ -30,7 +29,15 @@ const Login: React.FC = () => {
         visible={visible}
         setVisible={setVisible}
         placeholder="Password"
-        {...register("password", { required: "Password is required" })}
+        {...register("password", {
+          required: "Password is required",
+          pattern: {
+            value:
+              /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+            message:
+              "Password must be at least 8 characters and include letters, numbers, and special characters",
+          },
+        })}
       />
       <button
         type="submit"
@@ -60,7 +67,7 @@ const Login: React.FC = () => {
       </section>
 
       <section
-        className="flex flex-col text-red-700 text-[10px]"
+        className="flex flex-col text-red-700 text-[12px]"
         style={{ padding: "30px 0" }}
       >
         {errors.email && <p>{errors?.email?.message}</p>}

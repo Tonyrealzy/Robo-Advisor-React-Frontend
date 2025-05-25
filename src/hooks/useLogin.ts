@@ -3,6 +3,7 @@ import { LoginService } from "../services/AuthService";
 import { LoginRequest } from "../models/interface";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { logger } from "../components/logger";
 
 export const useLogin = () => {
   const navigate = useNavigate();
@@ -17,14 +18,13 @@ export const useLogin = () => {
     await LoginService(form)
       .then((data: any) => {
         if (data?.status === "success") {
-          navigate("/dashboard");
+          navigate("/dashboard", { replace: true });
         } else {
           toast.error(data?.error);
         }
       })
       .catch((error) => {
-        console.log(error);
-        toast.error(error);
+        logger(error);
       });
   };
 

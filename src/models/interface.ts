@@ -65,11 +65,12 @@ export interface ChangePasswordRequest {
   token: string;
 }
 
-export interface SignUpRequest {
+export interface SignupFormFields {
   email: string;
   first_name: string;
   last_name: string;
   password: string;
+  confirmPassword: string;
   username: string;
 }
 

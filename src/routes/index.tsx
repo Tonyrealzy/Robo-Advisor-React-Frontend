@@ -4,6 +4,7 @@ import Error404 from "../pages/Error404";
 import SuspenseWrapper from "./SuspenseWrapper";
 import ResetPassword from "../components/screens/ResetPassword";
 import ChangePassword from "../components/screens/ChangePassword";
+import ConfirmSignup from "../components/screens/ConfirmSignup";
 const HomeOutlet = lazy(() => import("../layout/HomeOutlet"));
 const AuthOutlet = lazy(() => import("../layout/AuthOutlet"));
 const LandingPage = lazy(() => import("../pages/LandingPage"));
@@ -73,6 +74,10 @@ export const router = createBrowserRouter([
           {
             path: "password",
             element: <ChangePassword />,
+          },
+          {
+            path: "confirm-signup",
+            element: <ConfirmSignup />,
           },
         ],
       },
