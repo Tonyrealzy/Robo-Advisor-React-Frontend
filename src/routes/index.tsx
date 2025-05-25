@@ -2,17 +2,24 @@ import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
 import Error404 from "../pages/Error404";
 import SuspenseWrapper from "./SuspenseWrapper";
-import ResetPassword from "../components/screens/ResetPassword";
-import ChangePassword from "../components/screens/ChangePassword";
-import ConfirmSignup from "../components/screens/ConfirmSignup";
 const HomeOutlet = lazy(() => import("../layout/HomeOutlet"));
 const AuthOutlet = lazy(() => import("../layout/AuthOutlet"));
+const FaqPage = lazy(() => import("../pages/FaqPage"));
 const LandingPage = lazy(() => import("../pages/LandingPage"));
 const AboutUsPage = lazy(() => import("../pages/AboutUsPage"));
-const FaqPage = lazy(() => import("../pages/FaqPage"));
+const ContactUsPage = lazy(() => import("../pages/ContactUsPage"));
 const Signup = lazy(() => import("../components/screens/Signup"));
 const Login = lazy(() => import("../components/screens/Login"));
-const ContactUsPage = lazy(() => import("../pages/ContactUsPage"));
+const ResetPassword = lazy(() => import("../components/screens/ResetPassword"));
+const ChangePassword = lazy(
+  () => import("../components/screens/ChangePassword")
+);
+const ConfirmSignupLink = lazy(
+  () => import("../components/screens/ConfirmSignupLink")
+);
+const ResetPasswordLink = lazy(
+  () => import("../components/screens/ResetPasswordLink")
+);
 
 export const router = createBrowserRouter([
   {
@@ -81,7 +88,15 @@ export const router = createBrowserRouter([
         path: "confirm-signup",
         element: (
           <SuspenseWrapper>
-            <ConfirmSignup />
+            <ConfirmSignupLink />
+          </SuspenseWrapper>
+        ),
+      },
+      {
+        path: "reset-password",
+        element: (
+          <SuspenseWrapper>
+            <ResetPasswordLink />
           </SuspenseWrapper>
         ),
       },

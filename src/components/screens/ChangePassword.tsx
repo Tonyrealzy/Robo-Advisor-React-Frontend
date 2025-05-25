@@ -1,36 +1,53 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import PasswordInput from "../inputs/PasswordInput";
+import { useChangePassword } from "../../hooks/useChangePassword";
+import MiniLoader from "../loader/MiniLoader";
 
 const ChangePassword: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const token = location.state;
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
+  const { errors, isSubmitting, watch, register, handleSubmit } =
+    useChangePassword(token);
+  const password = watch("new_password");
 
   return (
-    <form className="flex flex-col gap-2">
-      <div className="">
-        <input
-          type="password"
-          placeholder="Password"
-          className="border border-primary outline-none h-10 w-full rounded-md text-xs"
-          style={{ padding: "12px" }}
-          required
-        />
-      </div>
+    <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
+      <PasswordInput
+        visible={passwordVisible}
+        setVisible={setPasswordVisible}
+        placeholder="Password"
+        required
+        {...register("new_password", {
+          required: "Password is required",
+          pattern: {
+            value:
+              /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+            message:
+              "Password must be at least 8 characters and include letters, numbers, and special characters",
+          },
+        })}
+      />
 
-      <div className="">
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          className="border border-primary outline-none h-10 w-full rounded-md text-xs"
-          style={{ padding: "12px" }}
-          required
-        />
-      </div>
+      <PasswordInput
+        visible={confirmPasswordVisible}
+        setVisible={setConfirmPasswordVisible}
+        placeholder="Confirm Password"
+        required
+        {...register("confirmPassword", {
+          required: "Please confirm your password",
+          validate: (value) => value === password || "Passwords do not match",
+        })}
+      />
 
       <button
         type="submit"
-        className="bg-primary text-firstgold font-bold h-10 w-full rounded-md text-[10px] cursor-pointer"
+        className="bg-primary flex justify-center items-center text-firstgold font-bold h-10 w-full rounded-md text-[10px] cursor-pointer"
       >
-        SUBMIT
+        {isSubmitting ? <MiniLoader /> : "SUBMIT"}
       </button>
 
       <section
@@ -40,6 +57,14 @@ const ChangePassword: React.FC = () => {
         <p>
           Back to <a className="cursor-pointer">login</a>
         </p>
+      </section>
+
+      <section
+        className="flex flex-col text-red-700 text-[12px]"
+        style={{ padding: "30px 0" }}
+      >
+        {errors.new_password && <p>{errors?.new_password?.message}</p>}
+        {errors.confirmPassword && <p>{errors?.confirmPassword?.message}</p>}
       </section>
     </form>
   );

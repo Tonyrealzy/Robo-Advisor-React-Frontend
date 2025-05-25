@@ -18,6 +18,8 @@ export const useLogin = () => {
     await LoginService(form)
       .then((data: any) => {
         if (data?.status === "success") {
+          toast.success("Logged in successfully");
+          sessionStorage.setItem("token", data?.token);
           navigate("/dashboard", { replace: true });
         } else {
           toast.error(data?.error);
