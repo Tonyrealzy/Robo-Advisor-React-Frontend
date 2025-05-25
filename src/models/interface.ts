@@ -42,8 +42,68 @@ export interface ResponseList {
   response_list: FinancialProduct[];
 }
 
-export interface SignUp {
+export interface ApiResponse {
+  error: string;
+  status: string;
+}
+
+export interface LoginRequest {
   email: string;
-  username: string;
   password: string;
+}
+
+export interface LogoutRequest {
+  email: string;
+}
+
+export interface PasswordResetRequest {
+  email: string;
+}
+
+export interface ChangePasswordRequest {
+  new_password: string;
+  token: string;
+}
+
+export interface SignupFormFields {
+  email: string;
+  first_name: string;
+  last_name: string;
+  password: string;
+  confirmPassword: string;
+  username: string;
+}
+
+export interface ConfirmSignUpRequest {
+  email: string;
+  token: string;
+}
+
+export interface AISendRequest {
+  age: number;
+  amount: number;
+  currency: string;
+  investmentHorizon: number;
+  investmentKnowledge: string;
+  investmentPurpose: string;
+  location: string;
+  riskTolerance: string;
+}
+
+export interface GetByDateRequest {
+  page?: number;
+  limit?: number;
+  from?: string;
+  to?: string;
+}
+
+export interface GetByDaysRequest {
+  days: number;
+  page?: number;
+  limit?: number;
+}
+
+export interface GetByTodayRequest {
+  page?: number;
+  limit?: number;
 }

@@ -1,3 +1,3 @@
-import LoadingAnimation from "./Animation.json";
+import LoadingAnimation from "./Main Scene.json";
 
 export { LoadingAnimation };

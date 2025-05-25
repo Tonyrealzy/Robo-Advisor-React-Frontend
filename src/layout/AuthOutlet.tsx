@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 
 const AuthOutlet: React.FC = () => {
   return (
-    <div className="flex flex-col h-screen justify-center overflow-y-auto">
+    <div className="flex flex-col h-screen w-full justify-center overflow-y-auto">
       <Navbar />
       <section className="flex flex-col md:flex-row">
         <section className="hidden md:flex md:flex-1">
@@ -17,7 +17,7 @@ const AuthOutlet: React.FC = () => {
         </section>
 
         <div
-          className="flex flex-col justify-center items-center gap-4 md:flex-1"
+          className="flex flex-col justify-center w-full items-center gap-4 md:flex-1"
           style={{ paddingTop: "80px" }}
         >
           <aside className="w-[75%]">

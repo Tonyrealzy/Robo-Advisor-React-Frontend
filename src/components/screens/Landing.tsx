@@ -1,9 +1,9 @@
 import React from "react";
-import LandingIcon1 from "../assets/icons/LandingIcon1";
-import LandingIcon2 from "../assets/icons/LandingIcon2";
-import LandingIcon3 from "../assets/icons/LandingIcon3";
-import LandingIcon4 from "../assets/icons/LandingIcon4";
-import { LadyImage, RobotOneImage } from "../assets/images";
+import LandingIcon1 from "../../assets/icons/LandingIcon1";
+import LandingIcon2 from "../../assets/icons/LandingIcon2";
+import LandingIcon3 from "../../assets/icons/LandingIcon3";
+import LandingIcon4 from "../../assets/icons/LandingIcon4";
+import { LadyImage, RobotOneImage } from "../../assets/images";
 import { useNavigate } from "react-router-dom";
 
 const Landing: React.FC = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import Faq from "../components/Faq";
+import Faq from "../components/screens/Faq";
 import Navbar from "../layout/Navbar";
 
 const FaqPage: React.FC = () => {

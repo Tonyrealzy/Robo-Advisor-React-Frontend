@@ -1,5 +1,5 @@
 import React from "react";
-import AboutUs from "../components/AboutUs";
+import AboutUs from "../components/screens/AboutUs";
 import Navbar from "../layout/Navbar";
 
 const AboutUsPage: React.FC = () => {
