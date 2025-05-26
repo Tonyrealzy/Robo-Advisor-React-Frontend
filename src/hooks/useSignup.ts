@@ -4,9 +4,11 @@ import { toast } from "react-toastify";
 import { SignupService } from "../services/AuthService";
 import { SignupFormFields } from "../models/interface";
 import { logger } from "../components/logger";
+import { useErrorBoundary } from "react-error-boundary";
 
 export const useSignup = () => {
   const navigate = useNavigate();
+  const { showBoundary } = useErrorBoundary();
 
   const {
     register,
@@ -32,6 +34,7 @@ export const useSignup = () => {
       })
       .catch((error) => {
         logger(error);
+        showBoundary(error);
       });
   };
 

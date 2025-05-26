@@ -4,9 +4,11 @@ import { PasswordResetService } from "../services/AuthService";
 import { logger } from "../components/logger";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useErrorBoundary } from "react-error-boundary";
 
 export const useForgotPassword = () => {
   const navigate = useNavigate();
+  const { showBoundary } = useErrorBoundary();
   const {
     register,
     handleSubmit,
@@ -27,6 +29,7 @@ export const useForgotPassword = () => {
       })
       .catch((error) => {
         logger(error);
+        showBoundary(error);
       })
       .finally(() => {
         navigate("/login", { replace: true });
