@@ -252,7 +252,9 @@ const Landing: React.FC = () => {
             today.
           </h2>
           <button
-            className="flex justify-center items-center h-10 w-40 text-white text-[10px] bg-primary rounded-lg cursor-pointer transition duration-300 baseline hover:text-primary md:w-60 text-center text-xl border-2 border-solid border-primary font-bold hover:bg-teal"
+            className={`flex justify-center items-center h-10 w-40 text-white text-[10px] ${
+              landingLoading && `bg-primary`
+            } rounded-lg cursor-pointer transition duration-300 baseline hover:text-primary md:w-60 text-center text-xl border-2 border-solid border-primary font-bold hover:bg-teal`}
             onClick={handleNavigate}
           >
             {landingLoading ? <MiniLoader /> : "GET STARTED"}

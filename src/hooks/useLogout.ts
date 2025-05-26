@@ -27,6 +27,8 @@ export const useLogout = () => {
       })
       .finally(() => {
         setLoading(false);
+        sessionStorage.clear();
+        localStorage.clear();
         navigate("/", { replace: true });
       });
   };

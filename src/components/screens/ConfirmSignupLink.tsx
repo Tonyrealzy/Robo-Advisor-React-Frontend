@@ -3,12 +3,17 @@ import LoadingPage from "../../pages/LoadingPage";
 import { useConfirmSignup } from "../../hooks/useConfirmSignup";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { decryptData } from "../../utils/encryption";
 
 const ConfirmSignupLink: React.FC = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const token = searchParams.get("token");
-  const email = sessionStorage.getItem("email") || "";
+  const email = localStorage.getItem("email");
+  let decryptedEmail = "";
+  if (email) {
+    decryptedEmail = decryptData(email);
+  }
 
   const { loading, handleSubmit } = useConfirmSignup();
 
@@ -19,7 +24,7 @@ const ConfirmSignupLink: React.FC = () => {
       return;
     }
 
-    handleSubmit({ email, token });
+    handleSubmit({ email: decryptedEmail, token });
   }, [token, navigate]);
 
   return <div>{loading && <LoadingPage />}</div>;

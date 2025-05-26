@@ -5,6 +5,7 @@ import { logger } from "../components/logger";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useErrorBoundary } from "react-error-boundary";
+import { encryptData } from "../utils/encryption";
 
 export const useForgotPassword = () => {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ export const useForgotPassword = () => {
     await PasswordResetService(payload)
       .then((data: any) => {
         if (data?.status === "success") {
-          sessionStorage.setItem("resetEmail", payload.email);
+          sessionStorage.setItem("resetEmail", encryptData(payload.email));
           toast.success(
             `Password reset successful. A confirmation link was sent to ${payload.email}.`
           );
