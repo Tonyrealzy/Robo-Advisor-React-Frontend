@@ -9,7 +9,7 @@ import MiniLoader from "../loader/MiniLoader";
 
 const Landing: React.FC = () => {
   const { loading: landingLoading, handleSubmit: handleNavigate } =
-    usePingAuthServer();
+    usePingAuthServer()
 
   return (
     <div className="container min-h-screen flex flex-col space-y-2">
