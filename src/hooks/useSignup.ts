@@ -5,6 +5,7 @@ import { SignupService } from "../services/AuthService";
 import { SignupFormFields } from "../models/interface";
 import { logger } from "../components/logger";
 import { useErrorBoundary } from "react-error-boundary";
+import { encryptData } from "../utils/encryption";
 
 export const useSignup = () => {
   const navigate = useNavigate();
@@ -22,8 +23,9 @@ export const useSignup = () => {
     await SignupService(payload)
       .then((data: any) => {
         if (data?.status === "success") {
-          sessionStorage.setItem("username", form.username);
-          sessionStorage.setItem("email", form.email);
+          sessionStorage.setItem("username", encryptData(form.username));
+          sessionStorage.setItem("email", encryptData(form.email));
+          localStorage.setItem("email", encryptData(form.email));
           toast.success(
             `Account created! A confirmation link was sent to ${form.email}. Please verify to complete signup.`
           );

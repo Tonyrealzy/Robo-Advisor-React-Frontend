@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useForgotPassword } from "../../hooks/useForgotPassword";
 import MiniLoader from "../loader/MiniLoader";
 import { useResendLink } from "../../hooks/useResendLink";
+import { decryptData } from "../../utils/encryption";
 
 const ResetPassword: React.FC = () => {
   const navigate = useNavigate();
@@ -10,6 +11,10 @@ const ResetPassword: React.FC = () => {
   const { errors, isSubmitting, register, handleSubmit } = useForgotPassword();
   const { loading, handleSubmit: handleResendLinkSubmit } = useResendLink();
   const email = sessionStorage.getItem("resetEmail") || "";
+  let decryptedEmail = "";
+  if (email) {
+    decryptedEmail = decryptData(email);
+  }
 
   React.useEffect(() => {
     if (email !== "") {
@@ -23,7 +28,7 @@ const ResetPassword: React.FC = () => {
   }, [email]);
 
   const handleResetLink = async () => {
-    await handleResendLinkSubmit({ email });
+    await handleResendLinkSubmit({ email: decryptedEmail });
   };
 
   return (

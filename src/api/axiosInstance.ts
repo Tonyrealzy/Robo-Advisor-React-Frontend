@@ -1,10 +1,11 @@
 import axios from "axios";
 import { logger } from "../components/logger";
 import { toast } from "react-toastify";
+import { decryptData } from "../utils/encryption";
 
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_URL,
-  timeout: 30000,
+  timeout: 60000,
   headers: {
     "Content-Type": "application/json",
   },
@@ -13,7 +14,8 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use((config) => {
   const token = sessionStorage.getItem("authToken");
   if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+    const decryptedToken = decryptData(token);
+    config.headers.Authorization = `Bearer ${decryptedToken}`;
   }
   return config;
 });

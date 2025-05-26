@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { logger } from "../components/logger";
 import { useErrorBoundary } from "react-error-boundary";
+import { encryptData } from "../utils/encryption";
 
 export const useLogin = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ export const useLogin = () => {
       .then((data: any) => {
         if (data?.status === "success") {
           toast.success("Logged in successfully");
-          sessionStorage.setItem("token", data?.token);
+          sessionStorage.setItem("token", encryptData(data?.token));
           navigate("/dashboard", { replace: true });
         } else {
           toast.error(data?.error);
