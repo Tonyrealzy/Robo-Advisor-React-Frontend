@@ -4,9 +4,11 @@ import { ChangePasswordFormFields } from "../models/interface";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { logger } from "../components/logger";
+import { useErrorBoundary } from "react-error-boundary";
 
 export const useChangePassword = (token: string) => {
   const navigate = useNavigate();
+  const { showBoundary } = useErrorBoundary();
 
   const {
     register,
@@ -29,6 +31,7 @@ export const useChangePassword = (token: string) => {
       })
       .catch((error) => {
         logger(error);
+        showBoundary(error);
       });
   };
 

@@ -4,15 +4,17 @@ import LandingIcon2 from "../../assets/icons/LandingIcon2";
 import LandingIcon3 from "../../assets/icons/LandingIcon3";
 import LandingIcon4 from "../../assets/icons/LandingIcon4";
 import { LadyImage, RobotOneImage } from "../../assets/images";
-import { useNavigate } from "react-router-dom";
+import { usePingAuthServer } from "../../hooks/usePingAuthServer";
+import MiniLoader from "../loader/MiniLoader";
 
 const Landing: React.FC = () => {
-  const navigate = useNavigate();
+  const { loading: landingLoading, handleSubmit: handleNavigate } =
+    usePingAuthServer();
 
   return (
     <div className="container min-h-screen flex flex-col space-y-2">
       <section
-        className="container flex flex-col-reverse gap-2 md:gap-0 items-center md:flex-row"
+        className="container h-full flex flex-col-reverse gap-2 md:gap-0 items-center md:flex-row"
         style={{ marginTop: "18px" }}
       >
         {/* Left item */}
@@ -30,11 +32,11 @@ const Landing: React.FC = () => {
               Solutions.
             </p>
             <button
-              className="w-48 md:w-72 my-4 h-11 px-4 text-[10px] font-bold text-white bg-primary border-2 border-primary rounded-lg transition duration-300 hover:bg-white hover:text-primary"
+              className="flex justify-center items-center w-48 md:w-72 my-4 h-11 px-4 text-[10px] font-bold text-white bg-primary border-2 border-primary rounded-lg transition duration-300 hover:bg-white hover:text-primary"
               style={{ marginBottom: "20px" }}
-              onClick={() => navigate("/login")}
+              onClick={handleNavigate}
             >
-              GET STARTED
+              {landingLoading ? <MiniLoader /> : "GET STARTED"}
             </button>
           </aside>
         </div>
@@ -250,10 +252,10 @@ const Landing: React.FC = () => {
             today.
           </h2>
           <button
-            className="h-10 w-40 text-white text-[10px] bg-primary rounded-lg cursor-pointer transition duration-300 baseline hover:text-primary md:w-60 text-center text-xl border-2 border-solid border-primary font-bold hover:bg-teal"
-            onClick={() => navigate("/login")}
+            className="flex justify-center items-center h-10 w-40 text-white text-[10px] bg-primary rounded-lg cursor-pointer transition duration-300 baseline hover:text-primary md:w-60 text-center text-xl border-2 border-solid border-primary font-bold hover:bg-teal"
+            onClick={handleNavigate}
           >
-            GET STARTED
+            {landingLoading ? <MiniLoader /> : "GET STARTED"}
           </button>
         </div>
       </section>

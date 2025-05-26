@@ -4,9 +4,11 @@ import { LoginRequest } from "../models/interface";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { logger } from "../components/logger";
+import { useErrorBoundary } from "react-error-boundary";
 
 export const useLogin = () => {
   const navigate = useNavigate();
+  const { showBoundary } = useErrorBoundary();
 
   const {
     register,
@@ -27,6 +29,7 @@ export const useLogin = () => {
       })
       .catch((error) => {
         logger(error);
+        showBoundary(error);
       });
   };
 

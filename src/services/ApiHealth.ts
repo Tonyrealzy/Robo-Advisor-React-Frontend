@@ -1,13 +1,19 @@
+import axiosInstance from "../api/axiosInstance";
 import secondaryAxiosInstance from "../api/secondaryAxiosInstance";
-import { logger } from "../components/logger";
 
-export const CheckApiHealth = async () => {
+export const CheckAIApiHealth = async () => {
   try {
     const response = await secondaryAxiosInstance.get("/health");
-    if (response.status === 200) {
-      logger(response.data);
-    }
-    return response.data;
+    return response;
+  } catch (error: any) {
+    return error.error;
+  }
+};
+
+export const CheckAuthApiHealth = async () => {
+  try {
+    const response = await axiosInstance.get("/api/swagger/index.html");
+    return response;
   } catch (error: any) {
     return error.error;
   }
