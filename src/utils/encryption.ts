@@ -35,8 +35,7 @@ export const encryptData = (data: string): string => {
   try {
     const iv = new Array(16).fill(0); // Initialization vector
     const key = aesjs.utils.utf8.toBytes(publicKey);
-    const text = JSON.stringify(data);
-    const textBytes = aesjs.utils.utf8.toBytes(text);
+    const textBytes = aesjs.utils.utf8.toBytes(data);
 
     const aesCbc = new aesjs.ModeOfOperation.cbc(key, iv);
     const encryptedBytes = aesCbc.encrypt(aesjs.padding.pkcs7.pad(textBytes));
