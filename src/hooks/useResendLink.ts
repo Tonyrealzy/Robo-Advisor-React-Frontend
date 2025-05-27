@@ -18,7 +18,7 @@ export const useResendLink = () => {
       await ResendLinkService(payload)
         .then((data: any) => {
           if (data?.status === "success") {
-            toast.success(data?.message);
+            toast.success("Link sent successfully");
           } else {
             toast.error(data?.error);
           }

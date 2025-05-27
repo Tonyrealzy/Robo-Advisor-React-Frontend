@@ -14,12 +14,12 @@ const Landing: React.FC = () => {
   return (
     <div className="container min-h-screen flex flex-col space-y-2">
       <section
-        className="container h-full flex flex-col-reverse gap-2 md:gap-0 items-center md:flex-row"
+        className="container flex flex-col-reverse gap-2 md:gap-0 items-center md:flex-row"
         style={{ marginTop: "18px" }}
       >
         {/* Left item */}
         <div
-          className="flex justify-center items-center flex-1"
+          className="flex justify-center items-center h-full flex-1"
           style={{ padding: "4px" }}
         >
           <aside className="flex flex-col gap-4 justify-center items-center text-center md:text-start">
@@ -42,7 +42,7 @@ const Landing: React.FC = () => {
         </div>
 
         {/* Right Item - Image */}
-        <div className="flex-1">
+        <div className="flex-1 h-full ">
           <img
             className="w-full h-auto"
             src={RobotOneImage}
