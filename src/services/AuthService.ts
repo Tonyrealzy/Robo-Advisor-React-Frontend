@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import axiosInstance from "../api/axiosInstance";
 import {
   ChangePasswordRequest,
@@ -66,6 +67,19 @@ export const ResendLinkService = async (payload: PasswordResetRequest) => {
   try {
     const response = await axiosInstance.post("/auth/resend-link", payload);
     return response.data;
+  } catch (error: any) {
+    return error.error;
+  }
+};
+
+export const GetProfileService = async (payload: PasswordResetRequest) => {
+  try {
+    const response = await axiosInstance.post("/profile", payload);
+    if (response.data?.status === "success") {
+      return response.data?.data;
+    } else {
+      toast.error(response.data?.error);
+    }
   } catch (error: any) {
     return error.error;
   }
