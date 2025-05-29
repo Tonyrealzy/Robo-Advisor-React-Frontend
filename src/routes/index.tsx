@@ -2,12 +2,17 @@ import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
 import Error404 from "../pages/Error404";
 import SuspenseWrapper from "./SuspenseWrapper";
+import LoggedInLayout from "../layout/LoggedInLayout";
+
 const HomeOutlet = lazy(() => import("../layout/HomeOutlet"));
 const AuthOutlet = lazy(() => import("../layout/AuthOutlet"));
 const FaqPage = lazy(() => import("../pages/FaqPage"));
+const ResultPage = lazy(() => import("../pages/ResultPage"));
 const LandingPage = lazy(() => import("../pages/LandingPage"));
 const AboutUsPage = lazy(() => import("../pages/AboutUsPage"));
+const HomePage = lazy(() => import("../pages/HomePage"));
 const ContactUsPage = lazy(() => import("../pages/ContactUsPage"));
+const DynamicForm = lazy(() => import("../components/screens/DynamicForm"));
 const Signup = lazy(() => import("../components/screens/Signup"));
 const Login = lazy(() => import("../components/screens/Login"));
 const ResetPassword = lazy(() => import("../components/screens/ResetPassword"));
@@ -24,7 +29,11 @@ const ResetPasswordLink = lazy(
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomeOutlet />,
+    element: (
+      <SuspenseWrapper>
+        <HomeOutlet />
+      </SuspenseWrapper>
+    ),
     children: [
       {
         index: true,
@@ -68,19 +77,35 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "login",
-            element: <Login />,
+            element: (
+              <SuspenseWrapper>
+                <Login />
+              </SuspenseWrapper>
+            ),
           },
           {
             path: "signup",
-            element: <Signup />,
+            element: (
+              <SuspenseWrapper>
+                <Signup />
+              </SuspenseWrapper>
+            ),
           },
           {
             path: "reset",
-            element: <ResetPassword />,
+            element: (
+              <SuspenseWrapper>
+                <ResetPassword />
+              </SuspenseWrapper>
+            ),
           },
           {
             path: "password",
-            element: <ChangePassword />,
+            element: (
+              <SuspenseWrapper>
+                <ChangePassword />
+              </SuspenseWrapper>
+            ),
           },
         ],
       },
@@ -99,6 +124,40 @@ export const router = createBrowserRouter([
             <ResetPasswordLink />
           </SuspenseWrapper>
         ),
+      },
+      {
+        path: "",
+        element: (
+          <SuspenseWrapper>
+            <LoggedInLayout />
+          </SuspenseWrapper>
+        ),
+        children: [
+          {
+            path: "dashboard",
+            element: (
+              <SuspenseWrapper>
+                <HomePage />
+              </SuspenseWrapper>
+            ),
+          },
+          {
+            path: "forms",
+            element: (
+              <SuspenseWrapper>
+                <DynamicForm />
+              </SuspenseWrapper>
+            ),
+          },
+          {
+            path: "result",
+            element: (
+              <SuspenseWrapper>
+                <ResultPage />
+              </SuspenseWrapper>
+            ),
+          },
+        ],
       },
     ],
   },

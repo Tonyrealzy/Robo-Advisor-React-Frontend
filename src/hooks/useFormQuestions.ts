@@ -1,32 +1,33 @@
 import { useForm } from "react-hook-form";
-import { LoginService } from "../services/AuthService";
-import { LoginRequest } from "../models/interface";
+import { AIRequestService } from "../services/AiService";
+import { FinancialProduct, RequestForm } from "../models/interface";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { logger } from "../components/logger";
 import { useErrorBoundary } from "react-error-boundary";
-import { useAuth } from "../contexts/AuthContext";
+import { useState } from "react";
 
-export const useLogin = () => {
+export const useFormQuestions = () => {
   const navigate = useNavigate();
   const { showBoundary } = useErrorBoundary();
-  const { login } = useAuth();
+  const [dataToRender, setdataToRender] = useState<FinancialProduct[]>([]);
 
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<LoginRequest>();
+  } = useForm<RequestForm>();
 
-  const onSubmit = async (form: LoginRequest) => {
-    await LoginService(form)
+  const onSubmit = async (form: RequestForm) => {
+    await AIRequestService(form)
       .then((data: any) => {
         if (data?.status === "success") {
-          toast.success("Logged in successfully");
-          login(data?.token, form.email);
-          navigate("/dashboard", { replace: true });
+          toast.success("Request successful");
+          setdataToRender(data?.data);
+          navigate("/result", { replace: true });
         } else {
           toast.error(data?.error);
+          navigate("/dashboard", { replace: true });
         }
       })
       .catch((error) => {
@@ -37,6 +38,7 @@ export const useLogin = () => {
 
   return {
     errors,
+    dataToRender,
     isSubmitting,
     register,
     handleSubmit: handleSubmit(onSubmit),

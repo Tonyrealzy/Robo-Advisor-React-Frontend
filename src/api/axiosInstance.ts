@@ -12,10 +12,12 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use((config) => {
-  const token = sessionStorage.getItem("authToken");
+  const token = sessionStorage.getItem("token");
   if (token) {
     const decryptedToken = decryptData(token);
-    config.headers.Authorization = `Bearer ${decryptedToken}`;
+    if (decryptedToken) {
+      config.headers.Authorization = `Bearer ${decryptedToken}`;
+    }
   }
   return config;
 });
@@ -25,11 +27,15 @@ axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      toast.error("Invalid or expired token. Redirecting to login...");
-      logger("Unauthorized, redirecting to login...");
-      window.location.replace("/");
+      if (window.location.pathname !== "/") {
+        toast.error("Invalid or expired token. Redirecting to login...");
+        logger("Unauthorized, redirecting to login...");
+        window.location.replace("/");
+      }
+      return;
+    } else {
+      return error?.response;
     }
-    return error?.response;
   }
 );
 
