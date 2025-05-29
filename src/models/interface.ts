@@ -1,7 +1,9 @@
+import { QuestionName } from "./FormQuestions";
+
 export interface FormQuestions {
   id: number;
   text: string;
-  name: string;
+  name: QuestionName;
   options: FormOptions[];
 }
 
@@ -40,6 +42,17 @@ export interface FinancialProduct {
 
 export interface ResponseList {
   response_list: FinancialProduct[];
+}
+
+export interface RequestForm {
+  age: number;
+  amount: number;
+  currency: string;
+  investmentHorizon: number;
+  investmentKnowledge: string;
+  investmentPurpose: string;
+  location: string;
+  riskTolerance: string;
 }
 
 export interface ApiResponse {

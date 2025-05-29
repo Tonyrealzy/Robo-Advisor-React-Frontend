@@ -19,10 +19,10 @@ const LoggedInLayout: React.FC = () => {
       decryptedToken === undefined ? (
         <Navigate to="/" />
       ) : (
-        <div className="flex flex-col h-[100vh] w-[100vw]">
+        <div className="flex flex-col h-[100vh] w-[100vw] overflow-x-hidden">
           <LoggedInNavbar />
           <section>
-            <aside className="h-full flex">
+            <aside className="h-[100vh] flex overflow-y-hidden">
               <LoggedInSidebar />
               <Outlet />
             </aside>

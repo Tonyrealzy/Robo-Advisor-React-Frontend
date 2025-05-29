@@ -23,8 +23,8 @@ const LoggedInNavbar: React.FC = () => {
     <div>
       <section className="fixed w-full top-0 z-10 border-b-2 border-b-firstgold">
         <div
-          className="flex items-center bg-primary justify-between h-20 md:h-12"
-          style={{ padding: "8px" }}
+          className="flex items-center bg-primary justify-between h-12 md:h-20"
+          style={{ padding: "8px auto" }}
         >
           <div style={{ padding: "8px" }}>
             <img src={LogoImage} alt="Logo Image" className="max-w-32" />
@@ -32,12 +32,14 @@ const LoggedInNavbar: React.FC = () => {
 
           {/* Menu Items     */}
           <div
-            className="hidden md:flex md:flex-col md:justify-center md:items-end gap-6"
+            className="hidden md:flex md:flex-col md:justify-center md:items-center gap-1"
             style={{ padding: "8px" }}
           >
-            {!isPending && (
-              <p className="text-base text-firstgold">{`Welcome ${profile?.username}`}</p>
-            )}
+            {!isPending &&
+              profile?.username !== null &&
+              profile?.username !== undefined && (
+                <p className="text-base text-firstgold">{`Hi, ${profile?.username}`}</p>
+              )}
             <HeaderClock />
           </div>
 

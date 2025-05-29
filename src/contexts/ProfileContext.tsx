@@ -24,6 +24,7 @@ interface ProfileProviderProps {
 
 const ProfileProvider = ({ children }: ProfileProviderProps) => {
   const { email } = useAuth();
+
   let decryptedEmail = "";
   if (email) {
     decryptedEmail = decryptData(email);
@@ -32,7 +33,8 @@ const ProfileProvider = ({ children }: ProfileProviderProps) => {
   const { isPending, data: profile } = useQuery({
     queryKey: ["getProfile", decryptedEmail],
     queryFn: () => GetProfileService({ email: decryptedEmail }),
-    enabled: !!decryptedEmail,
+    enabled: decryptedEmail !== "" && window.location.pathname === "/dashboard",
+    retry: 2,
   });
 
   return (

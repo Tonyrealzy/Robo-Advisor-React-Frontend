@@ -23,7 +23,7 @@ const HeaderClock = () => {
     return () => clearInterval(interval);
   }, []);
 
-  return <div>{time}</div>;
+  return <div className="text-white">{time}</div>;
 };
 
 export default HeaderClock;

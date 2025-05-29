@@ -3,21 +3,21 @@ import { logger } from "../components/logger";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useErrorBoundary } from "react-error-boundary";
-import { CheckAuthApiHealth } from "../services/ApiHealth";
+import { CheckAIApiHealth } from "../services/ApiHealth";
 
-export const usePingAuthServer = () => {
+export const usePingAIServer = () => {
   const navigate = useNavigate();
   const { showBoundary } = useErrorBoundary();
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async () => {
     setLoading(true);
-    await CheckAuthApiHealth()
+    await CheckAIApiHealth()
       .then((data: any) => {
         if (data?.status === 200) {
-          navigate("/login");
+          navigate("/forms");
         } else {
-          toast.error("Failed to load backend application.");
+          toast.error("Failed to load AI service.");
         }
       })
       .catch((error) => {
