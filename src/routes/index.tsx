@@ -158,14 +158,14 @@ export const router = createBrowserRouter([
               </SuspenseWrapper>
             ),
           },
-          {
-            path: "history",
-            element: (
-              <SuspenseWrapper>
-                <History />
-              </SuspenseWrapper>
-            ),
-          },
+          // {
+          //   path: "history",
+          //   element: (
+          //     <SuspenseWrapper>
+          //       <History />
+          //     </SuspenseWrapper>
+          //   ),
+          // },
         ],
       },
     ],
