@@ -41,7 +41,7 @@ export const FormQuestionsData: FormQuestions[] = [
     id: 3,
     text: "How long do you plan to hold on to this investment? (in years)",
     name: "investmentHorizon",
-    options: [{ label: "enter your investment horizon (year)", value: "" }],
+    options: [{ label: "Enter your investment horizon (year)", value: "" }],
   },
   {
     id: 4,
@@ -67,7 +67,7 @@ export const FormQuestionsData: FormQuestions[] = [
     id: 6,
     text: "To get started, how much are you considering investing?",
     name: "amount",
-    options: [{ label: "enter amount", value: "" }],
+    options: [{ label: "Enter amount", value: "" }],
   },
   {
     id: 7,
@@ -85,6 +85,6 @@ export const FormQuestionsData: FormQuestions[] = [
     id: 8,
     text: "Lastly, where are you located? This helps me tailor recommendations to local regulations.",
     name: "location",
-    options: [{ label: "enter location", value: "" }],
+    options: [{ label: "Enter location", value: "" }],
   },
 ];

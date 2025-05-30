@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useContext } from "react";
 import { useAuth } from "./AuthContext";
 import { GetProfileService } from "../services/AuthService";
-import { decryptData } from "../utils/encryption";
+import { decryptData, encryptData } from "../utils/encryption";
 import { useQuery } from "@tanstack/react-query";
 
 interface Profile {
@@ -13,6 +13,7 @@ interface Profile {
 
 interface ProfileContextType {
   profile: Profile | null;
+  username: string | null;
   isPending: boolean;
 }
 
@@ -37,8 +38,15 @@ const ProfileProvider = ({ children }: ProfileProviderProps) => {
     retry: 2,
   });
 
+  profile && sessionStorage.setItem("username", encryptData(profile?.username));
+  const encryptedUsername = sessionStorage.getItem("username");
+  let username = "";
+  if (encryptedUsername) {
+    username = decryptData(encryptedUsername);
+  }
+
   return (
-    <ProfileContext.Provider value={{ isPending, profile }}>
+    <ProfileContext.Provider value={{ isPending, profile, username }}>
       {children}
     </ProfileContext.Provider>
   );

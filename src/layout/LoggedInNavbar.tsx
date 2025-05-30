@@ -8,23 +8,35 @@ import { decryptData } from "../utils/encryption";
 import { useGetProfile } from "../contexts/ProfileContext";
 import { useAuth } from "../contexts/AuthContext";
 import HeaderClock from "../components/header/HeaderClock";
+import { useNavigate } from "react-router-dom";
 
 const LoggedInNavbar: React.FC = () => {
   const [clicked, setClicked] = useState(false);
   const { loading, handleSubmit } = useLogout();
+  const navigate = useNavigate();
+
   const { email } = useAuth();
   let decryptedEmail = "";
   if (email) {
     decryptedEmail = decryptData(email);
   }
-  const { isPending, profile } = useGetProfile();
+  const { profile, isPending, username } = useGetProfile();
+
+  const navigateToDashboard = () => {
+    navigate("/dashboard");
+    setClicked(false);
+  };
+  const navigateToHistory = () => {
+    navigate("/history");
+    setClicked(false);
+  };
 
   return (
     <div>
-      <section className="fixed w-full top-0 z-10 border-b-2 border-b-firstgold">
+      <section className="w-full sticky top-0 z-50 border-b-2 border-b-firstgold">
         <div
-          className="flex items-center bg-primary justify-between h-12 md:h-20"
-          style={{ padding: "8px auto" }}
+          className="flex items-center bg-primary justify-between h-14 md:h-20"
+          style={{ padding: "8px" }}
         >
           <div style={{ padding: "8px" }}>
             <img src={LogoImage} alt="Logo Image" className="max-w-32" />
@@ -36,10 +48,14 @@ const LoggedInNavbar: React.FC = () => {
             style={{ padding: "8px" }}
           >
             {!isPending &&
-              profile?.username !== null &&
-              profile?.username !== undefined && (
-                <p className="text-base text-firstgold">{`Hi, ${profile?.username}`}</p>
-              )}
+            profile?.username !== null &&
+            profile?.username !== undefined ? (
+              <p className="text-base text-firstgold">{`Hi, ${profile?.username}`}</p>
+            ) : username !== "" && username !== undefined ? (
+              <p className="text-base text-firstgold">{`Hi, ${username}`}</p>
+            ) : (
+              <></>
+            )}
             <HeaderClock />
           </div>
 
@@ -66,10 +82,16 @@ const LoggedInNavbar: React.FC = () => {
             </span>
             <ul className="list-none text-white h-full flex flex-col items-center justify-center gap-2">
               <li className="block text-left py-4  border-gray-300">
-                <button className="h-10 w-full flex justify-center items-center">
+                <button
+                  className="h-10 w-full flex justify-center items-center"
+                  onClick={navigateToDashboard}
+                >
                   Dashboard
                 </button>
-                <button className="h-10 w-full flex justify-center items-center">
+                <button
+                  className="h-10 w-full flex justify-center items-center"
+                  onClick={navigateToHistory}
+                >
                   History
                 </button>
                 <button

@@ -3,11 +3,15 @@
 @theme {
   --color-white: #fff;
   --color-primary: #182c33;
+  --color-firstgold: #e0c212;
   --color-blue: #002146;
   --color-lightprimary: #d9e9fa;
+  --color-tertiary: #f26b5e;
   --color-secondary: #9ca3af;
-  --color-firstgold: #e0c212;
+  --color-nude: #3baeda;
   --color-veryLightGray: #ececec;
+  --color-highlight: #5e3c58;
+  --color-accent: #556b2f;
   --color-teal: #a2cdd4;
   --font-display: "Poppins", sans-serif;
 }

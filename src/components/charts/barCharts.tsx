@@ -17,12 +17,12 @@ const PortfolioBarChart: React.FC<{ data: InvestmentOption[] }> = ({
   data,
 }) => {
   return (
-    <ResponsiveContainer width="100%" height={300}>
+    <ResponsiveContainer width={350} height={400} className="text-xs">
       <BarChart data={data}>
         <XAxis dataKey="financial_product" stroke="var(--color-primary)" />
         <YAxis stroke="var(--color-primary)" />
         <Tooltip />
-        <Bar dataKey="estimatedReturnValue" fill="var(--color-secondary)" />
+        <Bar dataKey="estimatedReturnValue" fill="var(--color-firstgold)" />
       </BarChart>
     </ResponsiveContainer>
   );
