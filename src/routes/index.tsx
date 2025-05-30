@@ -7,11 +7,12 @@ import LoggedInLayout from "../layout/LoggedInLayout";
 const HomeOutlet = lazy(() => import("../layout/HomeOutlet"));
 const AuthOutlet = lazy(() => import("../layout/AuthOutlet"));
 const FaqPage = lazy(() => import("../pages/FaqPage"));
-const ResultPage = lazy(() => import("../pages/ResultPage"));
 const LandingPage = lazy(() => import("../pages/LandingPage"));
 const AboutUsPage = lazy(() => import("../pages/AboutUsPage"));
 const HomePage = lazy(() => import("../pages/HomePage"));
 const ContactUsPage = lazy(() => import("../pages/ContactUsPage"));
+const Result = lazy(() => import("../components/screens/Result"));
+const History = lazy(() => import("../components/screens/History"));
 const DynamicForm = lazy(() => import("../components/screens/DynamicForm"));
 const Signup = lazy(() => import("../components/screens/Signup"));
 const Login = lazy(() => import("../components/screens/Login"));
@@ -153,7 +154,15 @@ export const router = createBrowserRouter([
             path: "result",
             element: (
               <SuspenseWrapper>
-                <ResultPage />
+                <Result />
+              </SuspenseWrapper>
+            ),
+          },
+          {
+            path: "history",
+            element: (
+              <SuspenseWrapper>
+                <History />
               </SuspenseWrapper>
             ),
           },

@@ -31,6 +31,7 @@ axiosInstance.interceptors.response.use(
         toast.error("Invalid or expired token. Redirecting to login...");
         logger("Unauthorized, redirecting to login...");
         window.location.replace("/");
+        sessionStorage.clear();
       }
       return;
     } else {

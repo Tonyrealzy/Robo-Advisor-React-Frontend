@@ -3,10 +3,12 @@ import { useLogout } from "../hooks/useLogout";
 import { useAuth } from "../contexts/AuthContext";
 import { decryptData } from "../utils/encryption";
 import MiniLoader from "../components/loader/MiniLoader";
+import { useNavigate } from "react-router-dom";
 
 const LoggedInSidebar: React.FC = () => {
   const isDashboardActive = window.location.pathname === "/dashboard";
   const isHistoryActive = window.location.pathname === "/history";
+  const navigate = useNavigate();
 
   const { loading, handleSubmit } = useLogout();
   const { email } = useAuth();
@@ -15,20 +17,29 @@ const LoggedInSidebar: React.FC = () => {
     decryptedEmail = decryptData(email);
   }
 
+  const navigateToDashboard = () => {
+    navigate("/dashboard");
+  };
+  const navigateToHistory = () => {
+    navigate("/history");
+  };
+
   return (
-    <div className="h-[100vh] w-[20%] bg-primary text-firstgold text-[12px] hidden md:flex md:flex-col justify-evenly items-center">
+    <div className="w-[15%] h-full overflow-y-hidden bg-primary text-firstgold text-[12px] hidden md:flex md:flex-col justify-evenly items-center">
       <aside className="flex flex-col gap-1">
         <button
           className={`${
             isDashboardActive && "bg-firstgold text-primary"
           } h-10 w-32 text-center rounded-lg cursor-pointer hover:bg-firstgold hover:text-primary`}
+          onClick={navigateToDashboard}
         >
-          Dashboard
+          {window.location.pathname === "/result" ? "Return Home" : "Dashboard"}
         </button>
         <button
           className={`${
             isHistoryActive && "bg-firstgold text-primary"
           } h-10 w-32 text-center rounded-lg cursor-pointer hover:bg-firstgold hover:text-primary`}
+          onClick={navigateToHistory}
         >
           History
         </button>

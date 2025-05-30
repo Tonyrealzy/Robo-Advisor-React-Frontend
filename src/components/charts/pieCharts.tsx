@@ -7,10 +7,11 @@ interface InvestmentOption {
 
 const COLORS = [
   "var(--color-primary)",
-  "var(--color-secondary)",
-  "var(--color-teal)",
-  "var(--color-lightprimary)",
+  "var(--color-firstgold)",
+  "var(--color-nude)",
   "var(--color-tertiary)",
+  "var(--color-accent)",
+  "var(--color-highlight)",
 ];
 
 const PortfolioPieChart: React.FC<{ data: InvestmentOption[] }> = ({
@@ -22,7 +23,7 @@ const PortfolioPieChart: React.FC<{ data: InvestmentOption[] }> = ({
   }));
 
   return (
-    <PieChart width={400} height={300}>
+    <PieChart width={350} height={400} className="text-xs">
       <Pie
         data={pieData}
         dataKey="value"

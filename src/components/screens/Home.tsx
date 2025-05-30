@@ -5,18 +5,19 @@ import { usePingAIServer } from "../../hooks/usePingAIServer";
 import MiniLoader from "../loader/MiniLoader";
 
 const Home: React.FC = () => {
-  const { profile } = useGetProfile();
+  const { profile, username } = useGetProfile();
   const { loading, handleSubmit } = usePingAIServer();
 
   return (
     <div
-      className="container h-full flex flex-col justify-center items-center mx-auto space-y-0 md:space-y-0 md:flex-row"
-      style={{ padding: "15px" }}
+      className="container h-screen flex flex-col items-center mx-auto space-y-0 md:space-y-0 md:flex-row"
+      style={{ padding: "15px 30px" }}
     >
       {/* Left item */}
       <section className="flex flex-col text-sm space-y-12 flex-1 items-center md:items-start justify-center gap-3">
         <h1 className="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left">
-          Welcome, {profile?.username}
+          Welcome,{" "}
+          {(profile?.username && profile?.username) || (username && username)}
         </h1>
         <p className="max-w-xl text-center md:text-left">
           Achieving your financial goals is our top priority. Take the first

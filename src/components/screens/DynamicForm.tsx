@@ -11,15 +11,13 @@ const DynamicForm: React.FC = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col h-full overflow-y-auto w-full gap-4 justify-center items-center"
+      className="flex flex-col h-screen w-full gap-y-4 items-center"
+      style={{ padding: "20px" }}
     >
-      <section
-        className="w-[70%] flex flex-col gap-y-2 items-start justify-center"
-        style={{ margin: "50px auto 0" }}
-      >
+      <section className="flex flex-col gap-y-2 items-center">
         {FormQuestionsData.map((question) => (
-          <div key={question.id} className="w-full">
-            <label className="font-[12px] w-f">
+          <div key={question.id} className="w-full text-[12px]">
+            <label className="w-full">
               {question.id + ". " + question.text}
             </label>
 
@@ -34,12 +32,14 @@ const DynamicForm: React.FC = () => {
                 placeholder={question.options[0].label}
                 className="border border-primary outline-none h-10 w-full rounded-md text-xs"
                 style={{ padding: "12px" }}
+                disabled={isSubmitting}
               />
             ) : (
               <select
                 {...register(question.name as QuestionName, { required: true })}
                 className="border border-primary outline-none h-10 w-full rounded-md text-xs"
                 style={{ padding: "12px" }}
+                disabled={isSubmitting}
               >
                 <option value="" disabled selected className="text-xs">
                   -- Select an option --

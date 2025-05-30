@@ -1,16 +1,14 @@
 import { useForm } from "react-hook-form";
 import { AIRequestService } from "../services/AiService";
-import { FinancialProduct, RequestForm } from "../models/interface";
+import { RequestForm } from "../models/interface";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { logger } from "../components/logger";
 import { useErrorBoundary } from "react-error-boundary";
-import { useState } from "react";
 
 export const useFormQuestions = () => {
   const navigate = useNavigate();
   const { showBoundary } = useErrorBoundary();
-  const [dataToRender, setdataToRender] = useState<FinancialProduct[]>([]);
 
   const {
     register,
@@ -23,8 +21,7 @@ export const useFormQuestions = () => {
       .then((data: any) => {
         if (data?.status === "success") {
           toast.success("Request successful");
-          setdataToRender(data?.data);
-          navigate("/result", { replace: true });
+          navigate("/result", { replace: true, state: data?.data });
         } else {
           toast.error(data?.error);
           navigate("/dashboard", { replace: true });
@@ -38,7 +35,6 @@ export const useFormQuestions = () => {
 
   return {
     errors,
-    dataToRender,
     isSubmitting,
     register,
     handleSubmit: handleSubmit(onSubmit),
