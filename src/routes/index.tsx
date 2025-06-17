@@ -3,6 +3,7 @@ import { lazy } from "react";
 import Error404 from "../pages/Error404";
 import SuspenseWrapper from "./SuspenseWrapper";
 import LoggedInLayout from "../layout/LoggedInLayout";
+import SuspenseLoggedInWrapper from "./SuspenseLoggedInWrapper ";
 
 const HomeOutlet = lazy(() => import("../layout/HomeOutlet"));
 const AuthOutlet = lazy(() => import("../layout/AuthOutlet"));
@@ -12,6 +13,7 @@ const AboutUsPage = lazy(() => import("../pages/AboutUsPage"));
 const HomePage = lazy(() => import("../pages/HomePage"));
 const ContactUsPage = lazy(() => import("../pages/ContactUsPage"));
 const Result = lazy(() => import("../components/screens/Result"));
+const ResultTableView = lazy(() => import("../components/screens/ResultTableView"));
 const History = lazy(() => import("../components/screens/History"));
 const DynamicForm = lazy(() => import("../components/screens/DynamicForm"));
 const Signup = lazy(() => import("../components/screens/Signup"));
@@ -137,35 +139,43 @@ export const router = createBrowserRouter([
           {
             path: "dashboard",
             element: (
-              <SuspenseWrapper>
+              <SuspenseLoggedInWrapper>
                 <HomePage />
-              </SuspenseWrapper>
+              </SuspenseLoggedInWrapper>
             ),
           },
           {
             path: "forms",
             element: (
-              <SuspenseWrapper>
+              <SuspenseLoggedInWrapper>
                 <DynamicForm />
-              </SuspenseWrapper>
+              </SuspenseLoggedInWrapper>
             ),
           },
           {
             path: "result",
             element: (
-              <SuspenseWrapper>
+              <SuspenseLoggedInWrapper>
                 <Result />
-              </SuspenseWrapper>
+              </SuspenseLoggedInWrapper>
             ),
           },
-          // {
-          //   path: "history",
-          //   element: (
-          //     <SuspenseWrapper>
-          //       <History />
-          //     </SuspenseWrapper>
-          //   ),
-          // },
+          {
+            path: "view",
+            element: (
+              <SuspenseLoggedInWrapper>
+                <ResultTableView />
+              </SuspenseLoggedInWrapper>
+            ),
+          },
+          {
+            path: "history",
+            element: (
+              <SuspenseLoggedInWrapper>
+                <History />
+              </SuspenseLoggedInWrapper>
+            ),
+          },
         ],
       },
     ],

@@ -22,7 +22,7 @@ const PortfolioBarChart: React.FC<{ data: InvestmentOption[] }> = ({
         <XAxis dataKey="financial_product" stroke="var(--color-primary)" />
         <YAxis stroke="var(--color-primary)" />
         <Tooltip />
-        <Bar dataKey="estimatedReturnValue" fill="var(--color-firstgold)" />
+        <Bar dataKey="estimated_return_value" fill="var(--color-firstgold)" />
       </BarChart>
     </ResponsiveContainer>
   );

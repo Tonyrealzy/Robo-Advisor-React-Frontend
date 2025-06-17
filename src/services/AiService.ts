@@ -8,7 +8,7 @@ import {
 
 export const AIRequestService = async (payload: AISendRequest) => {
   try {
-    const response = await axiosInstance.post("/ai/send-request", payload);
+    const response = await axiosInstance.post("/ai/request", payload);
     return response.data;
   } catch (error: any) {
     return error.error;

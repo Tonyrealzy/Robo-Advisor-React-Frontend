@@ -5,7 +5,7 @@ import { decryptData } from "../utils/encryption";
 
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_URL,
-  timeout: 60000,
+  timeout: 10000,
   headers: {
     "Content-Type": "application/json",
   },
