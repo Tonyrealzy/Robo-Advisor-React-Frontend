@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 const DynamicForm: React.FC = () => {
   const navigate = useNavigate();
-  const { errors, isSubmitting, register, trigger, handleSubmit } =
+  const { isSubmitting, register, trigger, handleSubmit } =
     useFormQuestions();
 
   const [currentStep, setCurrentStep] = useState(0);

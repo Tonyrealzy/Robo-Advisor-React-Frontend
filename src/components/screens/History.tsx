@@ -48,7 +48,7 @@ const History: React.FC = () => {
   const columns = [
     {
       name: "S/N",
-      selector: (row: any, index: any) =>
+      selector: (_: any, index: any) =>
         (pageNumber - 1) * pageSize + index + 1,
       sortable: false,
       wrap: true,
