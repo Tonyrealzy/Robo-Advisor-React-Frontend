@@ -13,7 +13,9 @@ const AboutUsPage = lazy(() => import("../pages/AboutUsPage"));
 const HomePage = lazy(() => import("../pages/HomePage"));
 const ContactUsPage = lazy(() => import("../pages/ContactUsPage"));
 const Result = lazy(() => import("../components/screens/Result"));
-const ResultTableView = lazy(() => import("../components/screens/ResultTableView"));
+const ResultTableView = lazy(
+  () => import("../components/screens/ResultTableView")
+);
 const History = lazy(() => import("../components/screens/History"));
 const DynamicForm = lazy(() => import("../components/screens/DynamicForm"));
 const Signup = lazy(() => import("../components/screens/Signup"));
@@ -161,18 +163,18 @@ export const router = createBrowserRouter([
             ),
           },
           {
-            path: "view",
-            element: (
-              <SuspenseLoggedInWrapper>
-                <ResultTableView />
-              </SuspenseLoggedInWrapper>
-            ),
-          },
-          {
             path: "history",
             element: (
               <SuspenseLoggedInWrapper>
                 <History />
+              </SuspenseLoggedInWrapper>
+            ),
+          },
+          {
+            path: "view",
+            element: (
+              <SuspenseLoggedInWrapper>
+                <ResultTableView />
               </SuspenseLoggedInWrapper>
             ),
           },
