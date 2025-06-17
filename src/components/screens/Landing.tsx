@@ -9,7 +9,7 @@ import MiniLoader from "../loader/MiniLoader";
 
 const Landing: React.FC = () => {
   const { loading: landingLoading, handleSubmit: handleNavigate } =
-    usePingAuthServer()
+    usePingAuthServer();
 
   return (
     <div className="container min-h-screen flex flex-col space-y-2">
@@ -43,11 +43,7 @@ const Landing: React.FC = () => {
 
         {/* Right Item - Image */}
         <div className="h-full flex-1">
-          <img
-            className="w-full h-auto"
-            src={RobotOneImage}
-            alt="Robot Image"
-          />
+          <img className="w-full h-fit" src={RobotOneImage} alt="Robot Image" />
         </div>
       </section>
 

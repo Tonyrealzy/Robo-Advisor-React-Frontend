@@ -1,12 +1,14 @@
 import React from "react";
 import { useGetProfile } from "../../contexts/ProfileContext";
 import { RobotOneImage } from "../../assets/images";
-import { usePingAIServer } from "../../hooks/usePingAIServer";
-import MiniLoader from "../loader/MiniLoader";
+import { useNavigate } from "react-router-dom";
+// import { usePingAIServer } from "../../hooks/usePingAIServer";
+// import MiniLoader from "../loader/MiniLoader";
 
 const Home: React.FC = () => {
   const { profile, username } = useGetProfile();
-  const { loading, handleSubmit } = usePingAIServer();
+  const navigate = useNavigate();
+  // const { loading, handleSubmit } = usePingAIServer();
 
   return (
     <div
@@ -47,9 +49,9 @@ const Home: React.FC = () => {
         >
           <button
             className="h-10 w-48 flex justify-center items-center text-firstgold bg-primary rounded-lg cursor-pointer transition duration-300 baseline hover:text-primary md:w-72 text-center text-[10px] border-2 border-solid border-primary font-semibold hover:bg-white"
-            onClick={handleSubmit}
+            onClick={() => navigate("/forms")}
           >
-            {loading ? <MiniLoader /> : "GET STARTED"}
+            GET STARTED
           </button>
         </div>
       </section>

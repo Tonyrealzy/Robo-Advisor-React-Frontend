@@ -4,13 +4,13 @@ import PortfolioBarChart from "../charts/barCharts";
 import InvestmentTable from "../charts/tables";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const Result: React.FC = () => {
+const ResultTableView: React.FC = () => {
   const location = useLocation();
   const dataToRender = location.state;
 
   const navigate = useNavigate();
   const navigateToDashboard = () => {
-    navigate("/dashboard");
+    navigate("/history");
   };
 
   return (
@@ -46,4 +46,4 @@ const Result: React.FC = () => {
   );
 };
 
-export default Result;
+export default ResultTableView;

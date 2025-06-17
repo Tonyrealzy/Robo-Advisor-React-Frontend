@@ -33,7 +33,7 @@ const LoggedInSidebar: React.FC = () => {
           } h-10 w-32 text-center rounded-lg cursor-pointer hover:bg-firstgold hover:text-primary`}
           onClick={navigateToDashboard}
         >
-          {window.location.pathname === "/result" ? "Return Home" : "Dashboard"}
+          Dashboard
         </button>
         <button
           className={`${

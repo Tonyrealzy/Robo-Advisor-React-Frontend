@@ -33,9 +33,9 @@ export interface FinancialProduct {
   ticker: string;
   provider: string;
   brief_description: string;
-  expectedReturn: string;
+  expected_return: number;
   composition: string;
-  estimatedReturnValue: number;
+  estimated_return_value: number;
   principal: number;
   currency: string;
 }
@@ -118,8 +118,8 @@ export interface AISendRequest {
 }
 
 export interface GetByDateRequest {
-  page?: number;
-  limit?: number;
+  page: number;
+  limit: number;
   from?: string;
   to?: string;
 }

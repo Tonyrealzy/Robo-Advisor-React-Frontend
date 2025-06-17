@@ -2,7 +2,7 @@ import React from "react";
 import { FinancialProduct } from "../../models/interface";
 
 const InvestmentTable: React.FC<{ data: FinancialProduct[] }> = ({ data }) => (
-  <table className="hidden md:block w-full font-medium text-xs border-collapse border border-[var(--color-primary)] text-[var(--color-primary)]">
+  <table className="hidden md:block w-full font-bold text-xs border-collapse border border-[var(--color-primary)] text-[var(--color-primary)]">
     <thead>
       <tr className="font-bold">
         <th style={{ padding: "4px 8px" }}>PRODUCT</th>
@@ -18,9 +18,9 @@ const InvestmentTable: React.FC<{ data: FinancialProduct[] }> = ({ data }) => (
           <td style={{ padding: "4px 8px" }}>{item.financial_product}</td>
           <td style={{ padding: "4px 8px" }}>{item.provider}</td>
           <td style={{ padding: "4px 8px" }}>${item.principal}</td>
-          <td style={{ padding: "4px 8px" }}>{item.expectedReturn}</td>
+          <td style={{ padding: "4px 8px" }}>{item.expected_return}</td>
           <td style={{ padding: "4px 8px" }}>
-            ${item.estimatedReturnValue.toLocaleString()}
+            ${item?.estimated_return_value}
           </td>
         </tr>
       ))}

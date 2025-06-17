@@ -19,7 +19,7 @@ const PortfolioPieChart: React.FC<{ data: InvestmentOption[] }> = ({
 }) => {
   const pieData = data.map((item) => ({
     name: item.financial_product,
-    value: parseFloat(item.composition.replace("%", "")),
+    value: item.composition,
   }));
 
   return (
