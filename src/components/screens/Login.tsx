@@ -30,13 +30,7 @@ const Login: React.FC = () => {
         setVisible={setVisible}
         placeholder="Password"
         {...register("password", {
-          required: "Password is required",
-          pattern: {
-            value:
-              /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-            message:
-              "Password must be at least 8 characters and include letters, numbers, and special characters",
-          },
+          required: "Password is required"
         })}
       />
       <button
