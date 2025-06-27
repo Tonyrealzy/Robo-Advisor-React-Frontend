@@ -17,10 +17,10 @@ const InvestmentTable: React.FC<{ data: FinancialProduct[] }> = ({ data }) => (
         <tr key={idx} className="hover:bg-[var(--color-teal)]/2">
           <td style={{ padding: "4px 8px" }}>{item.financial_product}</td>
           <td style={{ padding: "4px 8px" }}>{item.provider}</td>
-          <td style={{ padding: "4px 8px" }}>${item.principal}</td>
+          <td style={{ padding: "4px 8px" }}>{item.principal}</td>
           <td style={{ padding: "4px 8px" }}>{item.expected_return}</td>
           <td style={{ padding: "4px 8px" }}>
-            ${item?.estimated_return_value}
+            {item?.estimated_return_value}
           </td>
         </tr>
       ))}
