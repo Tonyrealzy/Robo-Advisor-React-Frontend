@@ -12,9 +12,9 @@ const Landing: React.FC = () => {
     usePingAuthServer();
 
   return (
-    <div className="container min-h-screen flex flex-col space-y-2">
+    <div className=" w-full min-h-screen flex flex-col space-y-2">
       <section
-        className="container flex flex-col-reverse gap-2 md:gap-0 items-center md:flex-row"
+        className="w-full flex flex-col-reverse gap-2 md:gap-0 items-center md:flex-row"
         style={{ marginTop: "18px" }}
       >
         {/* Left item */}
@@ -23,7 +23,7 @@ const Landing: React.FC = () => {
           style={{ padding: "4px" }}
         >
           <aside className="flex flex-col gap-4 justify-center items-center text-center md:text-start">
-            <h1 className="max-w-md text-4xl lg:text-5xl font-bold">
+            <h1 className="max-w-md text-3xl text-wrap lg:text-5xl font-bold">
               Your Personalized Robo-Advisor for Investment Recommendations
             </h1>
             <p className="max-w-sm my-4 text-sm lg:text-base">
@@ -42,14 +42,14 @@ const Landing: React.FC = () => {
         </div>
 
         {/* Right Item - Image */}
-        <div className="h-full flex-1">
+        <div className="h-fit md:h-full flex-1">
           <img className="w-full h-fit" src={RobotOneImage} alt="Robot Image" />
         </div>
       </section>
 
-      <section className="flex flex-col gap-2 md:gap-6">
+      <section className="flex flex-col gap-2 w-full md:gap-y-6">
         {/* Features Section */}
-        <div className="container bg-primary flex flex-col-reverse items-center justify-center h-2/5 px-6 md:mx-auto mt-10 space-y-0 md:space-y-12 md:space-x-8 md:flex-row md:gap-4">
+        <div className="bg-primary flex flex-col-reverse items-center justify-center h-2/5 px-6 md:mx-auto mt-10 space-y-0 md:space-y-12 md:space-x-8 md:flex-row md:gap-4">
           {/* Left item */}
           <div
             className="flex flex-col justify-center items-center gap-4 mx-auto text-white md:flex-1 mb-40 space-y-12"
@@ -240,7 +240,7 @@ const Landing: React.FC = () => {
 
         {/* CTA Section */}
         <div
-          className="container bg-teal flex flex-col items-center justify-between space-y-12 md:flex-row"
+          className="bg-teal w-full flex flex-col items-center justify-between space-y-12 md:flex-row"
           style={{ padding: "8px" }}
         >
           <h2 className="text-3xl font-bold text-center text-primary md:text-4xl md:max-w-xl md:text-left">
