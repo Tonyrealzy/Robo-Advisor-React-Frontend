@@ -2,7 +2,7 @@ import React from "react";
 import { FinancialProduct } from "../../models/interface";
 
 const InvestmentTable: React.FC<{ data: FinancialProduct[] }> = ({ data }) => (
-  <table className="block w-fit md:w-full font-bold text-xs border-collapse border border-[var(--color-primary)] text-[var(--color-primary)]">
+  <table className="block p-4 w-fit md:w-full font-bold text-[10px] md:text-xs border-collapse border border-[var(--color-primary)] text-[var(--color-primary)]">
     <thead>
       <tr className="font-bold">
         <th style={{ padding: "4px 8px" }}>PRODUCT</th>

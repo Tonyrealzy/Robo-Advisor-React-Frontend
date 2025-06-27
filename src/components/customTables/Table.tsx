@@ -49,7 +49,7 @@ const Table: React.FC<TableProps> = ({
     headCells: {
       style: {
         color: "#0e4687",
-        fontSize: "12.6px",
+        fontSize: "13px",
         fontWeight: "bold !important",
         padding: "0",
         margin: "0",
