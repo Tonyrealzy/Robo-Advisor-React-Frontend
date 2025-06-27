@@ -1,14 +1,17 @@
 "use client";
 
 import React from "react";
-import { useErrorBoundary } from "react-error-boundary";
+// import { useErrorBoundary } from "react-error-boundary";
 
 type ErrorFallbackProps = {
   error: Error;
 };
 
 const ErrorFallback: React.FC<ErrorFallbackProps> = ({ error }) => {
-  const { resetBoundary } = useErrorBoundary();
+  // const { resetBoundary } = useErrorBoundary();
+  const handleRetry = () => {
+    window.location.reload();
+  };
 
   return (
     <div
@@ -22,7 +25,7 @@ const ErrorFallback: React.FC<ErrorFallbackProps> = ({ error }) => {
         {error.message}
       </pre>
       <button
-        onClick={resetBoundary}
+        onClick={handleRetry}
         className="bg-firstgold text-primary text-[10px] font-semibold h-10 w-40 rounded hover:opacity-90"
       >
         TRY AGAIN

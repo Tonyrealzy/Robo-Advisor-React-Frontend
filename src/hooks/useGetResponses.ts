@@ -3,12 +3,12 @@ import { GetAIResponseByDateService } from "../services/AiService";
 import { useQuery } from "@tanstack/react-query";
 
 export const useGetResponses = (params: GetByDateRequest) => {
-  const queryEnabled = !!params?.limit && !!params?.page;
+  // const queryEnabled = !!params?.limit && !!params?.page;
 
-  const { isLoading, data } = useQuery({
+  const { isLoading, data, refetch, isFetching } = useQuery({
     queryKey: ["getResponsesByDate", params],
     queryFn: () => GetAIResponseByDateService(params),
-    enabled: queryEnabled,
+    enabled: true,
     retry: 2,
     staleTime: 1000 * 60 * 5,
     refetchOnWindowFocus: false,
@@ -17,5 +17,7 @@ export const useGetResponses = (params: GetByDateRequest) => {
   return {
     isLoading,
     data,
+    isFetching,
+    refetch
   };
 };
