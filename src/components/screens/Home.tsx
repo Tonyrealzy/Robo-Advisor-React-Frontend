@@ -17,7 +17,7 @@ const Home: React.FC = () => {
     >
       {/* Left item */}
       <section className="flex flex-col text-sm space-y-12 flex-1 items-center md:items-start justify-center gap-3">
-        <h1 className="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left">
+        <h1 className="max-w-md text-4xl font-bold text-wrap text-center md:text-5xl md:text-left">
           Welcome,{" "}
           {(profile?.username && profile?.username) || (username && username)}
         </h1>
