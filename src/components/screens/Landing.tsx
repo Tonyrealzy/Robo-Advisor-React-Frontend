@@ -42,8 +42,12 @@ const Landing: React.FC = () => {
         </div>
 
         {/* Right Item - Image */}
-        <div className="h-[300px] w-[300px] md:h-full flex-1">
-          <img className="w-full h-fit" src={RobotOneImage} alt="Robot Image" />
+        <div className="h-[400px] w-[300px] md:h-full flex-1">
+          <img
+            className="h-[400px] w-[300px] md:h-full md:w-full"
+            src={RobotOneImage}
+            alt="Robot Image"
+          />
         </div>
       </section>
 
