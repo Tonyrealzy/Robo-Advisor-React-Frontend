@@ -90,7 +90,7 @@ const History: React.FC = () => {
   return (
     <div
       className="h-full w-full justify-center items-center"
-      style={{ padding: "25px auto" }}
+      style={{ padding: "20px" }}
     >
       <Table
         data={dataToRender}
