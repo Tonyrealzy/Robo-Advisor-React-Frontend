@@ -23,7 +23,7 @@ const Landing: React.FC = () => {
           style={{ padding: "4px" }}
         >
           <aside className="flex flex-col gap-4 justify-center items-center text-center md:text-start">
-            <h1 className="max-w-md text-3xl text-wrap lg:text-5xl font-bold">
+            <h1 className="max-w-md text-3xl text-wrap md:text-4xl lg:text-5xl font-bold">
               Your Personalized Robo-Advisor for Investment Recommendations
             </h1>
             <p className="max-w-sm my-4 text-sm lg:text-base">
