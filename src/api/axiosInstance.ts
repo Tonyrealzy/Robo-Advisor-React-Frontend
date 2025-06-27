@@ -32,6 +32,7 @@ axiosInstance.interceptors.response.use(
         logger("Unauthorized, redirecting to login...");
         window.location.replace("/");
         sessionStorage.clear();
+        localStorage.clear();
       }
       return;
     } else {

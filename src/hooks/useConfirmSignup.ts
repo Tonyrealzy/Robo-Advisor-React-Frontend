@@ -21,6 +21,7 @@ export const useConfirmSignup = () => {
         .then((data: any) => {
           if (data?.status === "success") {
             toast.success("Account confirmed. You can now log in.");
+            localStorage.clear();
           } else {
             toast.error(data?.error);
           }
