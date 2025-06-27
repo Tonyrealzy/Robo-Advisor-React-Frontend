@@ -18,12 +18,14 @@ const History: React.FC = () => {
     [pageNumber, pageSize]
   );
 
-  const { data, isLoading } = useGetResponses(params);
+  const { data, isLoading, isFetching, refetch } = useGetResponses(params);
   const paginationRowsPerPageOptions = [10, 20, 25, 50];
   const [totalRows, setTotalRows] = useState(0);
   const [dataToRender, setDataToRender] = useState([]);
 
   useEffect(() => {
+    refetch();
+
     if (data?.data) {
       setDataToRender(data.data);
     }
@@ -48,8 +50,7 @@ const History: React.FC = () => {
   const columns = [
     {
       name: "S/N",
-      selector: (_: any, index: any) =>
-        (pageNumber - 1) * pageSize + index + 1,
+      selector: (_: any, index: any) => (pageNumber - 1) * pageSize + index + 1,
       sortable: false,
       wrap: true,
     },
@@ -100,7 +101,7 @@ const History: React.FC = () => {
         paginationDefaultPage={pageNumber}
         onChangeRowsPerPage={onChangeRowsPerPage}
         paginationRowsPerPageOptions={paginationRowsPerPageOptions}
-        progressPending={isLoading}
+        progressPending={isLoading || isFetching}
         progressComponent={<CustomSkeletonLoader />}
       />
     </div>

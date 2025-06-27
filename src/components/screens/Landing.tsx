@@ -15,7 +15,7 @@ const Landing: React.FC = () => {
     <div className=" w-full min-h-screen flex flex-col space-y-2">
       <section
         className="w-full flex flex-col-reverse gap-2 md:gap-0 items-center md:flex-row"
-        style={{ marginTop: "18px" }}
+        style={{ marginTop: "20px" }}
       >
         {/* Left item */}
         <div
@@ -42,7 +42,7 @@ const Landing: React.FC = () => {
         </div>
 
         {/* Right Item - Image */}
-        <div className="h-fit md:h-full flex-1">
+        <div className="h-[300px] w-[300px] md:h-full flex-1">
           <img className="w-full h-fit" src={RobotOneImage} alt="Robot Image" />
         </div>
       </section>
